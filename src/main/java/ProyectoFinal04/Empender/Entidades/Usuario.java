@@ -34,7 +34,11 @@ public class Usuario implements Serializable {
     private String telefono;
     private String direccion;
     @ManyToOne
+<<<<<<< HEAD
     //private Publicacion publicacion;
+=======
+    private Publicacion publicacion;
+>>>>>>> develop
 
     
     public Integer getEdad() {
