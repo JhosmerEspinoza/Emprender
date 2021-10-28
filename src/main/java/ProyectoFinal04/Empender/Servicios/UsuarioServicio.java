@@ -10,5 +10,4 @@ package ProyectoFinal04.Empender.Servicios;
  * @author jhosenny
  */
 public class UsuarioServicio {
-    
 }
