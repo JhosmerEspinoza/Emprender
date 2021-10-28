@@ -5,10 +5,20 @@
  */
 package ProyectoFinal04.Empender.Controladores;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
  *
  * @author jhosenny
  */
+@Controller
+@RequestMapping("inicio")
 public class MainControlador {
+    
+    @GetMapping("index")
+    public String index(){
+        return "index";
+    }
     
 }
