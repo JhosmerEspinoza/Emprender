@@ -6,24 +6,35 @@
 package ProyectoFinal04.Empender.Entidades;
 
 import java.io.File;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.GenericGenerator;
 
 /**
  *
  * @author lucas
  */
-public class Publicacion {
+@Entity
+public class Publicacion implements Serializable{
     
-    private String etiqueta;
+    @Id
+    @GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    private String id;
     private String descripccion;
     private File foto;
     private String comentario;
-    private String id;
+    @ManyToOne
+    private Etiqueta etiqueta;
 
-    public String getEtiqueta() {
+    public Etiqueta getEtiqueta() {
         return etiqueta;
     }
 
-    public void setEtiqueta(String etiqueta) {
+    public void setEtiqueta(Etiqueta etiqueta) {
         this.etiqueta = etiqueta;
     }
 
