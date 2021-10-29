@@ -31,12 +31,11 @@ public class Usuario implements Serializable {
     private Integer seguidores;
     private String descripcion_perfil;
     private String mail;
-    private String telefono;
+    private String telefono; //Revisar el numero no puede contener letras
     private String direccion;
     @ManyToOne
     private Publicacion publicacion;
 
-    
     public Integer getEdad() {
         return Edad;
     }
@@ -92,14 +91,49 @@ public class Usuario implements Serializable {
     public void setSeguidores(Integer seguidores) {
         this.seguidores = seguidores;
     }
-    
-    public void setMail(String mail){
-        this.mail=mail;
+
+    public String getDescripcion_perfil() {
+        return descripcion_perfil;
     }
-    public String getMail(){
+
+    public void setDescripcion_perfil(String descripcion_perfil) {
+        this.descripcion_perfil = descripcion_perfil;
+    }
+
+    public String getMail() {
         return mail;
     }
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public Publicacion getPublicacion() {
+        return publicacion;
+    }
+
+    public void setPublicacion(Publicacion publicacion) {
+        this.publicacion = publicacion;
+    }
+
     
+   
     
     
     
