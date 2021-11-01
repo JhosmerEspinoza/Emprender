@@ -97,6 +97,12 @@ public class Usuario implements Serializable {
         this.seguidores = seguidores;
     }
     
+    public void setMail(String mail){
+        this.mail=mail;
+    }
+    public String getMail(){
+        return mail;
+    }
     
     
     
