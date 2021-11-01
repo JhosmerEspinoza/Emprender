@@ -3,16 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ProyectoFinal04.Empender.Excepciones;
+package ProyectoFinal04.Empender.Entidades;
+
+import javax.persistence.Entity;
 
 /**
  *
- * @author jhosenny
+ * @author Moriconi
  */
-public class Errores extends Exception{
+@Entity
+public class Cliente extends Usuario {
     
-    public Errores(String msn){
-        super(msn);
-    }
-
+    
 }

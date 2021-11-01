@@ -5,15 +5,15 @@
  */
 package ProyectoFinal04.Empender.Repositorios;
 
-import ProyectoFinal04.Empender.Entidades.Usuario;
+import ProyectoFinal04.Empender.Entidades.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author jhosenny
+ * @author Moriconi
  */
 @Repository
-public interface UsuarioRepositorio extends JpaRepository<Usuario, String>{
+public interface ClienteRepositorio extends JpaRepository<Cliente, String>{
     
 }
