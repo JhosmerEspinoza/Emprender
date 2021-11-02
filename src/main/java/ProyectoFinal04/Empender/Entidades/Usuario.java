@@ -32,7 +32,7 @@ public class Usuario implements Serializable {
 
     public Usuario() {
     }
-    
+
     public String getId() {
         return id;
     }
@@ -73,5 +73,5 @@ public class Usuario implements Serializable {
         this.fotoPerfil = fotoPerfil;
     }
     
-    
+        
 }
