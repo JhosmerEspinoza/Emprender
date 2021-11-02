@@ -38,17 +38,12 @@ public class UsuarioServicio {
         repositorioUsuario.save(user);     
     }
     @Transactional
-    public void modificarTodo(String id,String nombre,String nombreUsuario,String apellido,String mail)throws Error{
-         if(nombre==null || nombre.isEmpty()){
-            throw new Error("El Nombre no puede ser NULL o estar vacio.");
-        }
+    public void modificarTodo(String id,String nombre,String nombreUsuario,String mail){     
         Optional<Usuario>rta=repositorioUsuario.findById(id);
         if (rta.isPresent()) {
             Usuario usuario=rta.get();
-            usuario.setNombre(nombre);
-            usuario.setApellido(apellido);
+            usuario.setNombre(nombre);   
             usuario.setNombreDeUsuario(nombreUsuario);
-            usuario.setMail(mail);
             repositorioUsuario.save(usuario); 
         }
         }
