@@ -5,9 +5,11 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -18,6 +20,8 @@ public class Comentario {
     private String id;
     
     private String texto;
+    @Temporal(javax.persistence.TemporalType.DATE)
+    private Date fechaPublicacion;
     private String cliente_id;
     private String emprendedor_id;
     private Boolean alta;

@@ -71,7 +71,7 @@ public class Publicacion implements Serializable{
     }
 
     public Publicacion(String etiqueta, String descripccion, File foto, String comentario, String id) {
-        this.etiqueta = etiqueta;
+        //this.etiqueta = etiqueta;
         this.descripccion = descripccion;
         this.foto = foto;
         this.comentario = comentario;
