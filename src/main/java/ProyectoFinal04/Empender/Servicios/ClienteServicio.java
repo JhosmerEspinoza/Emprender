@@ -6,6 +6,7 @@
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Cliente;
+import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Excepciones.Errores;
 import ProyectoFinal04.Empender.Repositorios.ClienteRepositorio;
 import java.io.File;
@@ -26,6 +27,12 @@ public class ClienteServicio {
     @Autowired
     private UsuarioServicio servicioUsuario;
     
+    @Transactional
+    public Cliente save(Cliente usuario){
+        return repositorioCliente.save(usuario);
+    }
+    
+    @Transactional
     public void registrar(String nombre, String nombreUsuario, String password){
         servicioUsuario.registrar(nombre, nombreUsuario, password);
     }

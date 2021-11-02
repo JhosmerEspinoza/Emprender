@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author jhosenny
  */
 @Controller
-@RequestMapping("inicio")
+@RequestMapping("/")
 public class MainControlador {
     
     @GetMapping("index")

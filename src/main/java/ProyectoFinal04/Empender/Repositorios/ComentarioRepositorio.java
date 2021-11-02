@@ -9,6 +9,6 @@ package ProyectoFinal04.Empender.Repositorios;
  *
  * @author usuario
  */
-public class ComentarioRepositorio {
+public interface ComentarioRepositorio {
     
 }

@@ -5,11 +5,8 @@
  */
 package ProyectoFinal04.Empender.Servicios;
 
-import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Excepciones.Errores;
-import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
 import java.io.File;
-
 import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
 
@@ -46,6 +43,10 @@ public class UsuarioServicio {
         return repositorioUsuario.findById(id);
     }
     
+    @Transactional
+    public Usuario findByNombreUsuario(String nombreUsuario){
+        return repositorioUsuario.findByNombreUsuario(nombreUsuario);
+    }
     
     @Transactional
     public void IngresarFoto(String id, File foto){
@@ -69,6 +70,7 @@ public class UsuarioServicio {
             }else{
                 throw new Errores("Contraseña actual incorrecta");
             }
+            
         }   
     }
          

@@ -5,6 +5,7 @@
  */
 package ProyectoFinal04.Empender.Controladores;
 
+import ProyectoFinal04.Empender.Entidades.Emprendedor;
 import ProyectoFinal04.Empender.Servicios.ClienteServicio;
 import ProyectoFinal04.Empender.Servicios.EmprendedorServicio;
 import ProyectoFinal04.Empender.Servicios.UsuarioServicio;
@@ -12,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,17 +37,27 @@ public class ResgistroController{
     public String registro(){
         return("index");
     }
-    
+    @GetMapping("registroEmprendedor")
+    public String emprendedoror(Model model){
+        model.addAttribute("emprendedor", new Emprendedor());
+        return "registroEmprendedor";
+    }
     @PostMapping("/guardar")
     public String registroSave(Model model, @RequestParam String nombre, @RequestParam String nombreUsuario, @RequestParam String password, @RequestParam String mail, @RequestParam String telefono, @RequestParam String direccion){
         servicioEmprendedor.registrar(nombre, nombreUsuario, password, mail, direccion, telefono);
-        return "redirect:/inicioSesion";
+        return "redirect:/registroEmprendedor";
+    }
+    
+    @PostMapping("/save")
+    public String registroEmprendedor(@ModelAttribute Emprendedor emprendedor){
+        servicioEmprendedor.save(emprendedor);
+        return "redirect:/registroEmprendedor";
     }
     
     @PostMapping("/registro")
     public String registroCliente(Model model, @RequestParam String nombre, @RequestParam String nombreUsuario, @RequestParam String password){
        
         servicioCliente.registrar(nombre, nombreUsuario, password);
-        return "redirect:/inicioSesion";
+        return "redirect:/index";
     }
 }

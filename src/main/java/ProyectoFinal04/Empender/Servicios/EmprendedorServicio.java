@@ -26,6 +26,12 @@ public class EmprendedorServicio {
     @Autowired
     private UsuarioServicio servicioUsuario;
     
+    
+    @Transactional
+    public Emprendedor save(Emprendedor usuario){
+        return repositorioEmprendedor.save(usuario);
+    }
+    
     @Transactional
     public void registrar(String nombre, String nombreUsuario, String password, String mail, String direccion, String telefono){
         Emprendedor emprendedor = new Emprendedor();
