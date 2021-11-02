@@ -10,5 +10,5 @@ package ProyectoFinal04.Empender.Entidades;
  * @author usuario
  */
 public class Comentario {
-    
+   
 }

@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ProyectoFinal04.Empender.Repositorios;
+package ProyectoFinal04.Empender.Entidades;
+
+import javax.persistence.Entity;
 
 /**
  *
- * @author usuario
+ * @author Moriconi
  */
-public interface ComentarioRepositorio{
+@Entity
+public class Cliente extends Usuario {
+    
     
 }
