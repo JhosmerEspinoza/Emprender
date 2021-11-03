@@ -19,32 +19,29 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 public class Usuario implements Serializable {
-      @Id
-   @GeneratedValue(generator = "uuid")
-   @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private Integer Edad;
+  @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
     private String nombre;
-    private String apellido;
-    private String nombreDeUsuario;
-    private String contrasenha;
-    private File foto;
-    private Integer seguidores;
-    private String descripcion_perfil;
-    private String mail;
-    private String telefono;
-    private String direccion;
+    private String nombreUsuario;
+    private String password;
+    private File fotoPerfil;
     @ManyToOne
+    private Comentario comentario;
 
+    @ManyToOne
     private Publicacion publicacion;
 
-
-    
-    public Integer getEdad() {
-        return Edad;
+    public Usuario() {
     }
 
-    public void setEdad(Integer Edad) {
-        this.Edad = Edad;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -55,54 +52,47 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getNombreDeUsuario() {
-        return nombreDeUsuario;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNombreDeUsuario(String nombreDeUsuario) {
-        this.nombreDeUsuario = nombreDeUsuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getContrasenha() {
-        return contrasenha;
+    public File getFotoPerfil() {
+        return fotoPerfil;
     }
 
-    public void setContrasenha(String contrasenha) {
-        this.contrasenha = contrasenha;
+    public void setFotoPerfil(File fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
-    public File getFoto() {
-        return foto;
+    public Comentario getComentario() {
+        return comentario;
     }
 
-    public void setFoto(File foto) {
-        this.foto = foto;
+    public void setComentario(Comentario comentario) {
+        this.comentario = comentario;
     }
 
-    public Integer getSeguidores() {
-        return seguidores;
+    public Publicacion getPublicacion() {
+        return publicacion;
     }
 
-    public void setSeguidores(Integer seguidores) {
-        this.seguidores = seguidores;
-    }
-    
-    public void setMail(String mail){
-        this.mail=mail;
-    }
-    public String getMail(){
-        return mail;
+    public void setPublicacion(Publicacion publicacion) {
+        this.publicacion = publicacion;
     }
     
     
-    
+
     
 }

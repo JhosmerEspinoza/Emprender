@@ -5,12 +5,15 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
+import java.io.File;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Comentario {
@@ -20,10 +23,10 @@ public class Comentario {
     private String id;
     
     private String texto;
+    private File foto;
+    @DateTimeFormat
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fechaPublicacion;
-    private String cliente_id;
-    private String emprendedor_id;
+    private Date fecha;
     private Boolean alta;
 
     public Comentario() {
@@ -47,21 +50,22 @@ public class Comentario {
         this.texto = texto;
     }
 
-    public String getCliente_id() {
-        return cliente_id;
+    public File getFoto() {
+        return foto;
     }
 
-    public void setCliente_id(String cliente_id) {
-        this.cliente_id = cliente_id;
+    public void setFoto(File foto) {
+        this.foto = foto;
     }
 
-    public String getEmprendedor_id() {
-        return emprendedor_id;
+    public Date getFecha() {
+        return fecha;
     }
 
-    public void setEmprendedor_id(String emprendedor_id) {
-        this.emprendedor_id = emprendedor_id;
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
     }
+
 
     public Boolean getAlta() {
         return alta;

@@ -11,15 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
- * @author jhosenny
+ * @author Moriconi
  */
 @Controller
-@RequestMapping("/")
-public class MainControlador {
+@RequestMapping("/inicio")
+public class UsuarioController {
     
-    @GetMapping("index")
+    @GetMapping("/index")
     public String index(){
         return "index";
     }
-    
 }

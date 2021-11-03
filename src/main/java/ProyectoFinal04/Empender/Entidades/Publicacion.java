@@ -26,17 +26,18 @@ public class Publicacion implements Serializable{
     private String id;
     private String descripccion;
     private File foto;
-    private String comentario;
+//    @ManyToOne
+//    private Etiqueta etiqueta;
     @ManyToOne
-    private Etiqueta etiqueta;
-
-    public Etiqueta getEtiqueta() {
-        return etiqueta;
-    }
-
-    public void setEtiqueta(Etiqueta etiqueta) {
-        this.etiqueta = etiqueta;
-    }
+    private Comentario comentario;
+    
+//    public Etiqueta getEtiqueta() {
+//        return etiqueta;
+//    }
+//
+//    public void setEtiqueta(Etiqueta etiqueta) {
+//        this.etiqueta = etiqueta;
+//    }
 
     public String getDescripccion() {
         return descripccion;
@@ -53,15 +54,7 @@ public class Publicacion implements Serializable{
     public void setFoto(File foto) {
         this.foto = foto;
     }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
+    
     public String getId() {
         return id;
     }
@@ -70,13 +63,16 @@ public class Publicacion implements Serializable{
         this.id = id;
     }
 
-    public Publicacion(String etiqueta, String descripccion, File foto, String comentario, String id) {
-        //this.etiqueta = etiqueta;
-        this.descripccion = descripccion;
-        this.foto = foto;
-        this.comentario = comentario;
-        this.id = id;
+    public Comentario getComentario() {
+        return comentario;
     }
+
+    public void setComentario(Comentario comentario) {
+        this.comentario = comentario;
+    }
+    
+    
+    
     
     
 }

@@ -4,14 +4,15 @@
  * and open the template in the editor.
  */
 package ProyectoFinal04.Empender.Repositorios;
-
-
-import ProyectoFinal04.Empender.Entidades.Comentario;
+import ProyectoFinal04.Empender.Entidades.Emprendedor;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ *
+ * @author Moriconi
+ */
 @Repository
-public interface ComentarioRepositorio extends JpaRepository<Comentario, String> {
-
+public interface EmprendedorRepositorio extends JpaRepository<Emprendedor, String> {
     
 }

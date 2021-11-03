@@ -5,13 +5,15 @@
  */
 package ProyectoFinal04.Empender.Repositorios;
 
-
-import ProyectoFinal04.Empender.Entidades.Comentario;
+import ProyectoFinal04.Empender.Entidades.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ *
+ * @author Moriconi
+ */
 @Repository
-public interface ComentarioRepositorio extends JpaRepository<Comentario, String> {
-
+public interface ClienteRepositorio extends JpaRepository<Cliente, String>{
     
 }
