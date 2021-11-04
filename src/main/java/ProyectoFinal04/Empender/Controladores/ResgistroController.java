@@ -41,7 +41,7 @@ public class ResgistroController{
     public String emprendedoror(Model model){
         model.addAttribute("emprendedor", new Emprendedor());
         return "registroEmprendedor";
-    }
+    } 
     @PostMapping("/guardar")
     public String registroSave(Model model, @RequestParam String nombre, @RequestParam String nombreUsuario, @RequestParam String password, @RequestParam String mail, @RequestParam String telefono, @RequestParam String direccion){
         servicioEmprendedor.registrar(nombre, nombreUsuario, password, mail, direccion, telefono);

@@ -1,67 +1,68 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <link rel="icon" href="/src/main/resources/static/img/logo.png">
-    <title>Emprender</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/style.css'>
-</head>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <link rel="icon" th:href="@{img/logo.png}">
+        <title>Emprender</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' th:href="@{css/style.css}">
+    </head>
 
-<body>
-    <div class="contenedor">
-        <header class="cabecera">
-            <div class="empresa">
-                <div class="logo">
-                    <!-- imagen del logo -->
-                    <img id="logo" src="/src/main/resources/static/img/logo.png" alt="Emprender" title="Emprender.com">
-                </div>
-                <div>
-                    <a class="logo" href="index.html" title="Emprender">Emprender</a>
-                </div>
-            </div>
-            <div class="navbar">
-                <div>
-                    <a class="register-option" href="inicioSesion.html" title="inicio-sesion">Iniciar sesion</a>
-                </div>
-                <div>
-                    <a class="register-option" href="registroCliente.html" title="registrarse">Registarse</a>
-                </div>
-            </div>
-        </header>
-        <main class="main">
-            <div class="presentacion">
-                <h1>El desafio de emprender</h1>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero, tempora eveniet sit corporis veritatis expedita omnis voluptas eos dolore quam ea nam aut quis, necessitatibus iste tenetur! Impedit, ullam voluptatibus? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum quo pariatur molestiae totam fuga autem deserunt dolore velit sequi odit voluptates, quas accusantium, quidem nemo minus, porro aperiam. Natus, recusandae?</p>
-            </div>
-            <div class="inicio-sesion">
-                <div>
-                    <p>Emprender</p>
-                    <h1>Iniciar sesion</h1>
-                </div>
-                <form action="" method="post">
-                    <div>
-                        <label>Nombre de usuario</label><br>
-                        <input type="text" name="nombreUsuario"><br>
-                        <label>Contraseña</label><br>
-                        <input type="password" name="contraseña"><br>
-                        <button><a href="principal.html">Iniciar sesion</a></button>
+    <body>
+        <div class="contenedor">
+            <header class="cabecera">
+                <div class="empresa">
+                    <div class="logo">
+                        <!-- imagen del logo -->
+                        <img id="logo" th:src="@{img/logo.png}" alt="Emprender" title="Emprender.com">
                     </div>
                     <div>
+                        <a class="logo" th:href="@{index}" title="Emprender">Emprender</a>
+                    </div>
+                </div>
+                <div class="navbar">
+                    <div>
+                        <a class="register-option" th:href="@{inicioSesion}" title="inicio Sesion">Iniciar sesion</a>
+                    </div>
+                    <div>
+                        <a class="register-option" href="registroCliente.html" title="registrarse">Registarse</a>
+                    </div>
+                </div>
+            </header>
+            <main class="main">
+                <div class="presentacion">
+                    <h1>El desafio de emprender</h1>
+                    <p>Cuando piensas en crear tu propio negocio las personas suelen mencionarte todo lo que podría salir mal: es arriesgado, puedes arruinarte, nunca sabes cómo va a salir… Sin embargo, son pocos los que te recuerdan los motivos para emprender. Obviamente, levantar un negocio de la nada, no es fácil. Convertirte en empresario implica asumir toda clase de responsabilidades y compromisos. Pero todo esfuerzo se ve recompensado cuando tu proyecto se hace realidad y va creciendo poco a poco. Las razones para emprender son la libertad, cumplir sueños, las ganas de ser tu propio jefe… esta experiencia te regalará grandes experiencias y aprendizajes. Por eso, no debes dudarlo. EMPIEZA HOY MISMO</p>
+                </div>
+                <div class="inicio-sesion">
+                    <div class="inicio-sesion__content">
                         <div>
-                            <p>Sos nuevo?</p>
-                            <button><a href="registroCliente.html">Registrate</a></button>
+                            <h1>Iniciar sesion</h1>
                         </div>
+                        <form action="" method="post">
+                            <div>
+                                <label>Nombre de usuario</label><br>
+                                <input type="text" name="nombreUsuario"><br>
+                                <label>Contraseña</label><br>
+                                <input type="password" name="contraseña"><br>
+                                <button><a href="principal.html">Iniciar sesion</a></button>
+                            </div>
+                            <div>
+                                <div>
+                                    <p>Sos nuevo?</p>
+                                    <button><a th:href="@{/registroCliente}">Registrate</a></button>
+                                </div>
+                            </div>
+                        </form>  
                     </div>
-                </form>
-            </div>
-        </main>
-        <footer>
+                </div>
+            </main>
+            <footer>
 
-        </footer>
-    </div>
-</body>
+            </footer>
+        </div>
+    </body>
 
 </html>

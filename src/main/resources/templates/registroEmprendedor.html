@@ -4,10 +4,10 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <link rel="icon" href="/src/main/resources/static/img/logo.png">
+    <link rel="icon" th:href="@{img/logo.png}">
     <title>Registarse como cliente</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/style.css'>
+    <link rel='stylesheet' type='text/css' media='screen' th:href="@{css/style.css}">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
                     <img id="logo" src="/src/main/resources/static/img/logo.png" alt="Emprender" title="Emprender.com">
                 </div>
                 <div>
-                    <a class="logo" href="index.html" title="Emprender">Emprender</a>
+                    <a class="logo" th:href="@{/}" title="Emprender">Emprender</a>
                 </div>
             </div>
         </header>
@@ -59,6 +59,7 @@
         <footer>
 
         </footer>
+    </div>
 </body>
 
 </html>
