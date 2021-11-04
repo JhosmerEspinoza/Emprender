@@ -29,14 +29,14 @@
                     <p>Emprender</p>
                     <h1>Registrarse</h1>
                 </div>
-                <form action="" method="post">
+                <form th:action="@{/saveCliente}" method="post" th:object="${usuario}">
                     <div>
                         <label>Nmbre y Apellido</label><br>
-                        <input type="text" name="nombre"><br>
+                        <input type="text" th:field="*{nombre}"><br>
                         <label>Nombre de usuario</label><br>
-                        <input type="text" name="nombreUsuario"><br>
+                        <input type="text" th:field="*{nombreUsuario}"><br>
                         <label>Contraseña</label><br>
-                        <input type="text" name="contraseña"><br>
+                        <input type="password" th:field="*{password}"><br>
                     </div>
                     <div>
                         <div>

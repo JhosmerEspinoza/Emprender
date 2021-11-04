@@ -29,12 +29,12 @@
                     <p>Emprender</p>
                     <h1>Iniciar sesion</h1>
                 </div>
-                <form action="" method="post">
+                <form th:action="@{algo de iniciar sesion}" method="post" th:object="${usuario}">
                     <div>
                         <label>Nombre de usuario</label><br>
-                        <input type="text" name="nombreUsuario"><br>
+                        <input type="text" th:field="*{nombre}"><br>
                         <label>Contraseña</label><br>
-                        <input type="password" name="contraseña"><br>
+                        <input type="password" th:field="*{password}"><br>
                         <button><a href="principal.html">Iniciar sesion</a></button>
                     </div>
                     <div>

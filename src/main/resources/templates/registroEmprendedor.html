@@ -29,20 +29,20 @@
                     <p>Emprender</p>
                     <h1>Registrarse como Emprendedor</h1>
                 </div>
-                <form action="" method="post">
+                <form th:action="@{/saveEmprendedor}" method="post" th:object="${emprendedor}">
                     <div>
                         <label>Nombre y apelido</label><br>
-                        <input type="text" name="nombre"><br>
+                        <input type="text" th:field="*{nombre}"><br>
                         <label>Nombre de Usuario</label><br>
-                        <input type="text" name="nombreUsuario"><br>
+                        <input type="text" th:field="*{nombreUsuario}"><br>
                         <label>Mail</label><br>
-                        <input type="email" name="mail"><br>
+                        <input type="email" th:field="*{mail}"><br>
                         <label>Telefono</label><br>
-                        <input type="text" name="telefono"><br>
+                        <input type="text" th:field="*{telefono}"><br>
                         <label>Direccion</label><br>
-                        <input type="text" name="direccion"><br>
+                        <input type="text" th:field="*{direccion}"><br>
                         <label>Contraseña</label><br>
-                        <input type="text" name="contraseña"><br>
+                        <input type="password" th:field="*{password}"><br>
                     </div>
                     <div>
                         <div>
