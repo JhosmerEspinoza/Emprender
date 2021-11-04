@@ -5,10 +5,73 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
+import java.io.File;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import org.hibernate.annotations.GenericGenerator;
+
 /**
  *
  * @author jhosenny
  */
-public class Usuario {
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Usuario implements Serializable {
+    @Id
+    @GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    private String id;
+    private String nombre;
+    private String nombreUsuario;
+    private String password;
+    private File fotoPerfil;
+
+    public Usuario() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombreUsuario() {
+        return nombreUsuario;
+    }
+
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public File getFotoPerfil() {
+        return fotoPerfil;
+    }
+
+    public void setFotoPerfil(File fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
+    }
     
+        
 }

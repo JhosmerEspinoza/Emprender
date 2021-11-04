@@ -4,7 +4,7 @@
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <link rel="icon" type="icon" href="/src/main/resources/static/img/logo.png">
+    <link rel="icon" href="/src/main/resources/static/img/logo.png">
     <title>Inicio de sesion</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/style.css'>
@@ -29,7 +29,7 @@
                     <p>Emprender</p>
                     <h1>Iniciar sesion</h1>
                 </div>
-                <form th:action="@{algo de iniciar sesion}" method="post" th:object="${usuario}">
+                <form th:action="@{/inicioSesion}" method="post" th:object="${usuario}">
                     <div>
                         <label>Nombre de usuario</label><br>
                         <input type="text" th:field="*{nombre}"><br>

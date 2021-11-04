@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ProyectoFinal04.Empender.Excepciones;
+package ProyectoFinal04.Empender.Repositorios;
 
 /**
  *
- * @author jhosenny
+ * @author usuario
  */
-public class Errores extends Exception{
+public interface ComentarioRepositorio {
     
-    public Errores(String msn){
-        super(msn);
-    }
-
 }
