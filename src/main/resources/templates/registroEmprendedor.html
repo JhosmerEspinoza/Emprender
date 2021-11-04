@@ -28,17 +28,17 @@ and open the template in the editor.
                 <form th:action="@{/save}" method="post" th:object="${emprendedor}">
                     <div>
                         <label>Nombre y apelido</label><br>
-                        <input type="text"  th:field="*{nombre}"><br>
+                        <input type="text"  th:field="*{nombre}" autocomplete="off"><br>
                         <label>Nombre de Usuario</label><br>
-                        <input type="text"  th:field="*{nombreUsuario}"><br>
+                        <input type="text"  th:field="*{nombreUsuario}" autocomplete="off"><br>
                         <label>Mail</label><br>
-                        <input type="email"  th:field="*{mail}"><br>
+                        <input type="email"  th:field="*{mail}" autocomplete="off"><br>
                         <label>Telefono</label><br>
-                        <input type="text"  th:field="*{telefono}"><br>
+                        <input type="text"  th:field="*{telefono}" autocomplete="off"><br>
                         <label>Direccion</label><br>
-                        <input type="text" th:field="*{direccion}"><br>
+                        <input type="text" th:field="*{direccion}" autocomplete="off"><br>
                         <label>Contraseña</label><br>
-                        <input type="text"  th:field="*{password}"><br>
+                        <input type="password"  th:field="*{password}" autocomplete="off"><br>
                     </div>
                     <div>
                         <div>

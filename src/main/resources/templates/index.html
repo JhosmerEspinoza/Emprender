@@ -24,10 +24,10 @@ and open the template in the editor.
 
                 <p><span class="w3-tag">ATENCION</span></p>
                 <p><strong>Registrarse</strong></p>
-                <form th:action="@{/registro}" method="POST">
-                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nombre" required name="nombre" autocomplete=off></p>
-                    <p><input class="w3-input w3-padding-16 w3-border" type="text" placeholder="Nombre de usuario" required name="nombreUsuario" autocomplete=off></p>
-                    <p><input class="w3-input w3-padding-16 w3-border" type="password" placeholder="Contraseña" required name="password" autocomplete=off></p>
+                <form th:action="@{/saveUser}" method="POST" th:object="${usuario}">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" th:field="*{nombre}" autocomplete=off placeholder="Nombre" required name="name"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" th:field="*{nombreUsuario}" autocomplete=off placeholder="Nombre de usuario"required name="user"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="password"  th:field="*{password}" autocomplete=off placeholder="Contraseña" required name="pass"></p>
                     <button class="w3-button w3-black" type="submit">REGISTRAR</button>
                     
                 </form><br>
