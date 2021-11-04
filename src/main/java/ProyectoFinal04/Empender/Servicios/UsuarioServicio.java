@@ -5,6 +5,7 @@
  */
 package ProyectoFinal04.Empender.Servicios;
 
+import ProyectoFinal04.Empender.Entidades.Foto;
 import ProyectoFinal04.Empender.Excepciones.Errores;
 import java.io.File;
 import ProyectoFinal04.Empender.Entidades.Usuario;
@@ -22,6 +23,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -29,11 +31,13 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class UsuarioServicio implements UserDetailsService {
-    
+
     @Autowired
     private UsuarioRepositorio repositorioUsuario;
-    
-    
+    @Autowired
+    private FotoServicio servicioFoto;
+
+    /*
     @Transactional
     public void registrar(String nombre, String nombreUsuario, String password){
         Usuario user=new Usuario();
@@ -43,50 +47,56 @@ public class UsuarioServicio implements UserDetailsService {
         
         repositorioUsuario.save(user);
     }
-    
+     */
     @Transactional
-    public Usuario save(Usuario user) throws Exception{
-        
-        if(findByNombreUsuario(user.getNombreUsuario()) !=null){
+    public Usuario save(Usuario user) throws Exception {
+
+        if (findByNombreUsuario(user.getNombreUsuario()) != null) {
             throw new Exception("El nombre de usuario ya existe");
         }
         return repositorioUsuario.save(user);
     }
-            
+
     @Transactional
-    public Optional<Usuario> findById(String id){
+    public Optional<Usuario> findById(String id) {
         return repositorioUsuario.findById(id);
     }
-    
+
     @Transactional
-    public Usuario findByNombreUsuario(String nombreUsuario){
+    public Usuario findByNombreUsuario(String nombreUsuario) {
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
-    
+
     @Transactional
-    public void IngresarFoto(String id, File foto){
-        
-        Optional<Usuario>rta=repositorioUsuario.findById(id);
+    public void IngresarFoto(String id, MultipartFile fotoPerfil) {
+
+        Optional<Usuario> rta = repositorioUsuario.findById(id);
         if (rta.isPresent()) {
-            Usuario usuario=rta.get();
+            Usuario usuario = rta.get();
+            
+            String idFoto = usuario.getFotoPerfil().getId();
+            
+            Foto foto = new Foto();
+            foto = servicioFoto.modificarFoto(idFoto, fotoPerfil);
             usuario.setFotoPerfil(foto);
             repositorioUsuario.save(usuario);
         }
     }
+
     @Transactional
-    public void modificarClave(String id,String claveActual,String claveNueva)throws Errores{
-        Optional<Usuario>rta=repositorioUsuario.findById(id);
+    public void modificarClave(String id, String claveActual, String claveNueva) throws Errores {
+        Optional<Usuario> rta = repositorioUsuario.findById(id);
         if (rta.isPresent()) {
-            Usuario usuario=rta.get();
-            
-            if (usuario.getPassword().equals(claveActual)){
+            Usuario usuario = rta.get();
+
+            if (usuario.getPassword().equals(claveActual)) {
                 usuario.setPassword(claveNueva);
                 repositorioUsuario.save(usuario);
-            }else{
+            } else {
                 throw new Errores("Contraseña actual incorrecta");
             }
-            
-        }   
+
+        }
     }
 
     //Logeo de usuario
@@ -96,15 +106,12 @@ public class UsuarioServicio implements UserDetailsService {
             Usuario usuario = repositorioUsuario.findByNombreUsuario(username);
             User user;
             List<GrantedAuthority> authorities = new ArrayList();
-            authorities.add(new SimpleGrantedAuthority("EjemploPermiso") );
+            authorities.add(new SimpleGrantedAuthority("EjemploPermiso"));
             return new User(username, usuario.getPassword(), authorities);//authorities son los permisos
         } catch (Exception e) {
             throw new UsernameNotFoundException("Nombre de usuario incorrecto");
         }
-        
+
     }
-         
- 
-  
-      
+
 }

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <link rel="icon" type="icon" href="/src/main/resources/static/img/logo.png">
+    <title>Emprender</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/style.css'>
+</head>
+
+<body>
+    <div class="contenedor">
+        <header class="cabecera">
+            <div class="empresa">
+                <div class="logo">
+                    <!-- imagen del logo -->
+                    <img id="logo" src="/src/main/resources/static/img/logo.png" alt="Emprender" title="Emprender.com">
+                </div>
+                <div>
+                    <a class="logo" href="index.html" title="Emprender">Emprender</a>
+                </div>
+            </div>
+            <div>
+                <!-- agregar perfil y buscador al header -->
+                <a href="">perfil</a>
+                <a href="">buscador</a>
+            </div>
+        </header>
+        <main>
+            <div>
+                <article class="perfil__card">
+                    <h2>Mi perfil</h2>
+                    <div class="div-perfil">
+                        <img id="foto-perfil" src="perfil.png" alt="Foto de perfil" title="Foto de perfil">
+                    </div>
+                </article>
+                <div class="etiquetas">
+                    <div>
+                        <h4>Mis etiquetas</h4>
+                        <div>
+                            <!-- agregas etiquetas con thameleaf -->
+                            <p>ejemplo de etiquetas</p>
+                        </div>
+                        <div>
+                            <!-- agregas buscador etiquetas -->
+                            <p>buscador para agregar etiquetas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="publicaciones">
+                <div class="publicar">
+                    <p>seccion para crear una publicacion</p>
+                </div>
+                <article class="publicacion">
+                    <div>
+                        <h2>Titulo posteo</h2>
+                        <p>Descripcion del posteo</p>
+                        <img src="coffee.png" alt="Foto de la publicacion">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci obcaecati ab assumenda
+                            numquam, impedit explicabo libero iusto delectus, rem aperiam tempora harum, accusantium eum
+                            neque veniam id! Sequi, distinctio magnam.</p>
+                        <div class="comenatarios">
+                            <p>ejemplo de comentarios</p>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+        <footer>
+            <p>copyright</p>
+        </footer>
+    </div>
+</body>
+
+</html>

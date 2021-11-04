@@ -31,11 +31,13 @@ public class ClienteServicio {
     public Cliente save(Cliente usuario){
         return repositorioCliente.save(usuario);
     }
-    
+    /*
     @Transactional
     public void registrar(String nombre, String nombreUsuario, String password){
         servicioUsuario.registrar(nombre, nombreUsuario, password);
     }
+    */
+    
     
     @Transactional
     public void modificarTodo(String id,String nombre,String nombreUsuario){     
@@ -51,9 +53,7 @@ public class ClienteServicio {
     public void modificarPass(String id, String claveActual, String claveNueva) throws Errores{
         servicioUsuario.modificarClave(id, claveActual, claveNueva);
     }
-    public void ingresarFoto(String id, File foto){
-        servicioUsuario.IngresarFoto(id, foto);
-    }
+    
 }
    
 

@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -28,9 +29,11 @@ public class Usuario implements Serializable {
     private String nombre;
     private String nombreUsuario;
     private String password;
-    private File fotoPerfil;
+    @OneToOne
+    private Foto fotoPerfil;
 
     public Usuario() {
+        
     }
 
     public String getId() {
@@ -65,13 +68,14 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public File getFotoPerfil() {
+    public Foto getFotoPerfil() {
         return fotoPerfil;
     }
 
-    public void setFotoPerfil(File fotoPerfil) {
+    public void setFotoPerfil(Foto fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
     }
+
     
         
 }

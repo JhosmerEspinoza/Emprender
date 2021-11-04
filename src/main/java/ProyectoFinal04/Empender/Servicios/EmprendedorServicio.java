@@ -66,13 +66,11 @@ public class EmprendedorServicio {
             repositorioEmprendedor.save(emprendedor); 
         }
     }
-    
+    @Transactional
     public void modificarPass(String id, String claveActual, String claveNueva) throws Errores{
         servicioUsuario.modificarClave(id, claveActual, claveNueva);
     }
-    public void ingresarFoto(String id, File foto){
-        servicioUsuario.IngresarFoto(id, foto);
-    }
+    
     @Transactional
     public Usuario findByNombreUsuario(String nombreUsuario){
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
