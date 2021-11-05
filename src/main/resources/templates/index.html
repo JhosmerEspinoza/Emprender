@@ -8,6 +8,9 @@
         <title>Emprender</title>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' type='text/css' media='screen' th:href="@{css/style.css}">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     </head>
 
     <body>
@@ -27,7 +30,7 @@
                         <a class="register-option" th:href="@{inicioSesion}" title="inicio Sesion">Iniciar sesion</a>
                     </div>
                     <div>
-                        <a class="register-option" href="registroCliente.html" title="registrarse">Registarse</a>
+                        <a class="register-option" th:href="@{/registroCliente}" title="registrarse">Registarse</a>
                     </div>
                 </div>
             </header>
@@ -47,7 +50,7 @@
                                 <input type="text" name="nombreUsuario"><br>
                                 <label>Contraseña</label><br>
                                 <input type="password" name="contraseña"><br>
-                                <button><a href="principal.html">Iniciar sesion</a></button>
+                                <button type="submit"><a href="principal.html">Iniciar sesion</a></button>
                             </div>
                             <div>
                                 <div>

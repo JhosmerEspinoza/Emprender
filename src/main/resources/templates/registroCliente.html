@@ -16,7 +16,7 @@
             <div class="empresa">
                 <div class="logo">
                     <!-- imagen del logo -->
-                    <img id="logo" src="/src/main/resources/static/img/logo.png" alt="Emprender" title="Emprender.com">
+                    <img id="logo" th:src="@{img/logo.png}" alt="Emprender" title="Emprender.com">
                 </div>
                 <div>
                     <a class="logo" th:href="@{/}" title="Emprender">Emprender</a>
@@ -29,18 +29,18 @@
                     <p>Emprender</p>
                     <h1>Registrarse</h1>
                 </div>
-                <form th:action="@{/saveCliente}" method="post" th:object="${usuario}">
+                <form th:action="@{/saveUser}" method="post" th:object="${usuario}">
                     <div>
                         <label>Nmbre y Apellido</label><br>
-                        <input type="text" th:field="*{nombre}"><br>
+                        <input type="text" th:field="*{nombre}" autocomplete="off"><br>
                         <label>Nombre de usuario</label><br>
-                        <input type="text" th:field="*{nombreUsuario}"><br>
+                        <input type="text" th:field="*{nombreUsuario}" autocomplete="off"><br>
                         <label>Contraseña</label><br>
-                        <input type="password" th:field="*{password}"><br>
+                        <input type="password" th:field="*{password}" autocomplete="off"><br>
                     </div>
                     <div>
                         <div>
-                            <button><a href="registroEmprendedor.html">Soy emprendedor</a></button>
+                            <button><a th:href="@{/registroEmprendedor}">Soy emprendedor</a></button>
                         </div>
                         <div>
                             <button type="reset">Borrar</button>

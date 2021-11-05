@@ -13,7 +13,7 @@ body{
     display: flex;
 }
 
-.cabecera a{
+a{
     text-decoration: none;
     color: white;
 }
@@ -59,4 +59,13 @@ body{
     width: 15%;
     margin-left: 1rem;
     border-bottom: 0.1rem solid white;
+}
+
+.presentacion h1{
+    font-family: 'Playfair Display', serif;
+}
+
+button{
+    background-color: navy;
+    color: white;
 }

@@ -6,8 +6,10 @@
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Emprendedor;
+import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Excepciones.Errores;
 import ProyectoFinal04.Empender.Repositorios.EmprendedorRepositorio;
+import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
 import java.io.File;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -25,10 +27,14 @@ public class EmprendedorServicio {
     private EmprendedorRepositorio repositorioEmprendedor;
     @Autowired
     private UsuarioServicio servicioUsuario;
-    
+    @Autowired
+    private UsuarioRepositorio repositorioUsuario;
     
     @Transactional
-    public Emprendedor save(Emprendedor usuario){
+    public Emprendedor save(Emprendedor usuario) throws Exception{
+        if(findByNombreUsuario(usuario.getNombreUsuario()) !=null){
+            throw new Exception("El nombre de usuario ya existe");
+        }
         return repositorioEmprendedor.save(usuario);
     }
     
@@ -66,6 +72,10 @@ public class EmprendedorServicio {
     }
     public void ingresarFoto(String id, File foto){
         servicioUsuario.IngresarFoto(id, foto);
+    }
+    @Transactional
+    public Usuario findByNombreUsuario(String nombreUsuario){
+        return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
     
 }

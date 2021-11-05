@@ -16,10 +16,10 @@
             <div class="empresa">
                 <div class="logo">
                     <!-- imagen del logo -->
-                    <img id="logo" src="/src/main/resources/static/img/logo.png" alt="Emprender" title="Emprender.com">
+                    <img id="logo" th:src="@{img/logo.png}" alt="Emprender" title="Emprender.com">
                 </div>
                 <div>
-                    <a class="logo" th:href="@{/}" title="Emprender">Emprender</a>
+                    <a class="logo" th:href="@{index}" title="Emprender">Emprender</a>
                 </div>
             </div>
         </header>
@@ -29,24 +29,24 @@
                     <p>Emprender</p>
                     <h1>Registrarse como Emprendedor</h1>
                 </div>
-                <form th:action="@{/saveEmprendedor}" method="post" th:object="${emprendedor}">
+                <form th:action="@{/save}" method="post" th:object="${emprendedor}">
                     <div>
                         <label>Nombre y apelido</label><br>
-                        <input type="text" th:field="*{nombre}"><br>
+                        <input type="text" th:field="*{nombre}" autocomplete="off"><br>
                         <label>Nombre de Usuario</label><br>
-                        <input type="text" th:field="*{nombreUsuario}"><br>
+                        <input type="text" th:field="*{nombreUsuario}" autocomplete="off"><br>
                         <label>Mail</label><br>
-                        <input type="email" th:field="*{mail}"><br>
+                        <input type="email" th:field="*{mail}" autocomplete="off"><br>
                         <label>Telefono</label><br>
-                        <input type="text" th:field="*{telefono}"><br>
+                        <input type="text" th:field="*{telefono}" autocomplete="off"><br>
                         <label>Direccion</label><br>
-                        <input type="text" th:field="*{direccion}"><br>
+                        <input type="text" th:field="*{direccion}" autocomplete="off"><br>
                         <label>Contraseña</label><br>
-                        <input type="password" th:field="*{password}"><br>
+                        <input type="password" th:field="*{password}" autocomplete="off"><br>
                     </div>
                     <div>
                         <div>
-                            <button><a href="registroCliente.html">Soy cliente</a></button>
+                            <button><a th:href="@{/registroCliente}">Soy cliente</a></button>
                         </div>
                         <div>
                             <button type="reset">Borrar</button>
