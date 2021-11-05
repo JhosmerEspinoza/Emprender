@@ -23,8 +23,17 @@ public class ComentarioServicio {
         coment.setTexto(texto);
         comentarioRepositorio.save(coment);
     }
-    
-    public void eliminar(String id, String titulo) {
+    public void modificarComentario(String id, String texto) {
+        Optional<Comentario> respuesta = comentarioRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Comentario coment = respuesta.get();
+            coment.setTexto(texto);
+            comentarioRepositorio.save(coment);
+        } else {
+            //throw new ErrorServicio("El autor ingresado no se encuentra");
+        }
+    }
+    public void eliminar(String id) {
         Optional<Comentario> respuesta = comentarioRepositorio.findById(id);
         if (respuesta.isPresent()) {
             Comentario coment = respuesta.get();

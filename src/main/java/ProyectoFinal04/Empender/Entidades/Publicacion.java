@@ -26,18 +26,18 @@ public class Publicacion implements Serializable{
     private String id;
     private String descripccion;
     private File foto;
-//    @ManyToOne
-//    private Etiqueta etiqueta;
+    @ManyToOne
+    private Etiqueta etiqueta;
     @ManyToOne
     private Comentario comentario;
     
-//    public Etiqueta getEtiqueta() {
-//        return etiqueta;
-//    }
-//
-//    public void setEtiqueta(Etiqueta etiqueta) {
-//        this.etiqueta = etiqueta;
-//    }
+    public Etiqueta getEtiqueta() {
+        return etiqueta;
+    }
+
+    public void setEtiqueta(Etiqueta etiqueta) {
+        this.etiqueta = etiqueta;
+    }
 
     public String getDescripccion() {
         return descripccion;
