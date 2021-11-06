@@ -16,10 +16,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class MainControlador {
-    
+
     @GetMapping("index")
-    public String index(){
+    public String index() {
         return "index";
     }
-    
+
+    @GetMapping("inicio")
+    public String inicio() {
+        return "principal";
+    }
 }

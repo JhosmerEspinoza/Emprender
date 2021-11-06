@@ -3,19 +3,14 @@
     padding: 0;
 }
 
-body{
-    background-color: silver;
+.contenedor{
+    margin: 0 5%;
 }
 
 .cabecera{
     background-color: midnightblue;
     width: 100%;
     display: flex;
-}
-
-a{
-    text-decoration: none;
-    color: white;
 }
 
 .empresa, .navbar{
@@ -41,18 +36,22 @@ a{
     width: 100%;
 }
 
-.main{
+p{
     margin: 1rem;
+}
+.main{
+    height: 100%;
+    margin: 1rem;
+    margin-top: 4rem;
     display: flex;
+    padding: 0 2rem;
 }
 
-.presentacion{
-    width: 50%;
-}
-.inicio-sesion{
+.presentacion, .inicio-sesion{
     width: 50%;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .navbar div{
