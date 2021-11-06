@@ -7,12 +7,10 @@ package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Foto;
 import ProyectoFinal04.Empender.Excepciones.Errores;
-import java.io.File;
 import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
 import ProyectoFinal04.Empender.enums.Roles;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
 import javax.transaction.Transactional;
@@ -62,7 +60,9 @@ public class UsuarioServicio implements UserDetailsService {
         user.setPassword(encoder.encode(password));
         //Seteo de rol
         user.setRol(Roles.CLIENTE);
+        //Seteo imagen
         
+        //
         return repositorioUsuario.save(user);
     }
 
