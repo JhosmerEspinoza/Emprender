@@ -36,7 +36,10 @@ public class ResgistroController{
     @Autowired
     private FotoServicio servicioFoto;
   
-    
+    @GetMapping("principal")
+    public String principal(){
+        return "principal";
+    }
     @GetMapping("")
     public String usuario(Model model){
         model.addAttribute("usuario", new Usuario());

@@ -5,9 +5,11 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
+import ProyectoFinal04.Empender.enums.Roles;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
@@ -22,18 +24,21 @@ import org.hibernate.annotations.GenericGenerator;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
+
     @Id
-    @GeneratedValue(generator="uuid")
-    @GenericGenerator(name="uuid", strategy="uuid2")
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String nombreUsuario;
     private String password;
     @OneToOne
     private Foto fotoPerfil;
+    @Enumerated(EnumType.STRING)
+    private Roles rol;
 
     public Usuario() {
-        
+
     }
 
     public String getId() {
@@ -76,6 +81,12 @@ public class Usuario implements Serializable {
         this.fotoPerfil = fotoPerfil;
     }
 
-    
-        
+    public Roles getRol() {
+        return rol;
+    }
+
+    public void setRol(Roles rol) {
+        this.rol = rol;
+    }
+
 }

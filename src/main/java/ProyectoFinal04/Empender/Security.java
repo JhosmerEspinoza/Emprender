@@ -37,9 +37,7 @@ public class Security extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(servicioUsuario).passwordEncoder(new BCryptPasswordEncoder());
     }
     
-    
     //Configuracion peticiones HTTP
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests().antMatchers("/*").permitAll()
@@ -53,7 +51,7 @@ public class Security extends WebSecurityConfigurerAdapter {
                     .permitAll()
                 .and().logout()
                     .logoutUrl("/logout")
-                    .logoutSuccessUrl("/login")
+                    .logoutSuccessUrl("/login?logout")
                 .and().csrf().disable();
     }
     

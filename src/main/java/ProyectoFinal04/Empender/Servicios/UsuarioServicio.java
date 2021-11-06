@@ -10,9 +10,10 @@ import ProyectoFinal04.Empender.Excepciones.Errores;
 import java.io.File;
 import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
+import ProyectoFinal04.Empender.enums.Roles;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -54,6 +56,13 @@ public class UsuarioServicio implements UserDetailsService {
         if (findByNombreUsuario(user.getNombreUsuario()) != null) {
             throw new Exception("El nombre de usuario ya existe");
         }
+        //Encriptamiento de password
+        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
+        String password = user.getPassword();
+        user.setPassword(encoder.encode(password));
+        //Seteo de rol
+        user.setRol(Roles.CLIENTE);
+        
         return repositorioUsuario.save(user);
     }
 
@@ -106,7 +115,7 @@ public class UsuarioServicio implements UserDetailsService {
             Usuario usuario = repositorioUsuario.findByNombreUsuario(username);
             User user;
             List<GrantedAuthority> authorities = new ArrayList();
-            authorities.add(new SimpleGrantedAuthority("EjemploPermiso"));
+            authorities.add(new SimpleGrantedAuthority("ROLE_"+usuario.getRol()));
             return new User(username, usuario.getPassword(), authorities);//authorities son los permisos
         } catch (Exception e) {
             throw new UsernameNotFoundException("Nombre de usuario incorrecto");
