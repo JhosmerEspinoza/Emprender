@@ -6,8 +6,10 @@
 package ProyectoFinal04.Empender.Controladores;
 
 import ProyectoFinal04.Empender.Entidades.Emprendedor;
+import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Servicios.ClienteServicio;
 import ProyectoFinal04.Empender.Servicios.EmprendedorServicio;
+import ProyectoFinal04.Empender.Servicios.FotoServicio;
 import ProyectoFinal04.Empender.Servicios.UsuarioServicio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
+
 
 /**
  *
@@ -29,35 +32,40 @@ public class ResgistroController{
     @Autowired
     private UsuarioServicio servicioUsuario;
     @Autowired
-    private ClienteServicio servicioCliente;
-    @Autowired
     private EmprendedorServicio servicioEmprendedor;
-    
-    @GetMapping("")
-    public String registro(){
-        return("index");
+    @Autowired
+    private FotoServicio servicioFoto;
+  
+    @GetMapping("principal")
+    public String principal(){
+        return "principal";
     }
+    @GetMapping("")
+    public String usuario(Model model){
+        model.addAttribute("usuario", new Usuario());
+        return "index";
+    }
+    
+    
     @GetMapping("registroEmprendedor")
     public String emprendedoror(Model model){
         model.addAttribute("emprendedor", new Emprendedor());
         return "registroEmprendedor";
     }
-    @PostMapping("/guardar")
-    public String registroSave(Model model, @RequestParam String nombre, @RequestParam String nombreUsuario, @RequestParam String password, @RequestParam String mail, @RequestParam String telefono, @RequestParam String direccion){
-        servicioEmprendedor.registrar(nombre, nombreUsuario, password, mail, direccion, telefono);
-        return "redirect:/registroEmprendedor";
-    }
+    
+
     
     @PostMapping("/save")
-    public String registroEmprendedor(@ModelAttribute Emprendedor emprendedor){
+    public String registroEmprendedor(@ModelAttribute Emprendedor emprendedor) throws Exception{
         servicioEmprendedor.save(emprendedor);
         return "redirect:/registroEmprendedor";
     }
     
-    @PostMapping("/registro")
-    public String registroCliente(Model model, @RequestParam String nombre, @RequestParam String nombreUsuario, @RequestParam String password){
-       
-        servicioCliente.registrar(nombre, nombreUsuario, password);
-        return "redirect:/index";
+    @PostMapping("/saveUser")
+    public String registroUsuario(@ModelAttribute Usuario usuario) throws Exception{
+        servicioUsuario.save(usuario);
+        return "redirect:/registroEmprendedor";
     }
+    
+
 }

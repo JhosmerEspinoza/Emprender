@@ -5,12 +5,16 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
+import ProyectoFinal04.Empender.enums.Roles;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -19,21 +23,21 @@ import org.hibernate.annotations.GenericGenerator;
  */
 @Entity
 public class Usuario implements Serializable {
-  @Id
+
+    @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
     private String nombre;
     private String nombreUsuario;
     private String password;
-    private File fotoPerfil;
-    @ManyToOne
-    private Comentario comentario;
-
-    @ManyToOne
-    private Publicacion publicacion;
+    @OneToOne
+    private Foto fotoPerfil;
+    @Enumerated(EnumType.STRING)
+    private Roles rol;
 
     public Usuario() {
+
     }
 
     public String getId() {
@@ -68,31 +72,19 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public File getFotoPerfil() {
+    public Foto getFotoPerfil() {
         return fotoPerfil;
     }
 
-    public void setFotoPerfil(File fotoPerfil) {
+    public void setFotoPerfil(Foto fotoPerfil) {
         this.fotoPerfil = fotoPerfil;
     }
 
-    public Comentario getComentario() {
-        return comentario;
+    public Roles getRol() {
+        return rol;
     }
 
-    public void setComentario(Comentario comentario) {
-        this.comentario = comentario;
+    public void setRol(Roles rol) {
+        this.rol = rol;
     }
-
-    public Publicacion getPublicacion() {
-        return publicacion;
-    }
-
-    public void setPublicacion(Publicacion publicacion) {
-        this.publicacion = publicacion;
-    }
-    
-    
-
-    
 }

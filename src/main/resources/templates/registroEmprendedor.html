@@ -32,18 +32,17 @@
                 <form action="" method="post">
                     <div>
                         <label>Nombre y apelido</label><br>
-                        <input type="text" name="nombre"><br>
+                        <input type="text"  th:field="*{nombre}" autocomplete="off"><br>
                         <label>Nombre de Usuario</label><br>
-                        <input type="text" name="nombreUsuario"><br>
+                        <input type="text"  th:field="*{nombreUsuario}" autocomplete="off"><br>
                         <label>Mail</label><br>
-                        <input type="email" name="mail"><br>
+                        <input type="email"  th:field="*{mail}" autocomplete="off"><br>
                         <label>Telefono</label><br>
-                        <input type="text" name="telefono"><br>
+                        <input type="text"  th:field="*{telefono}" autocomplete="off"><br>
                         <label>Direccion</label><br>
-                        <input type="text" name="direccion"><br>
+                        <input type="text" th:field="*{direccion}" autocomplete="off"><br>
                         <label>Contraseña</label><br>
-                        <input type="text" name="contraseña"><br>
->>>>>>> 0505b59fcdadcb76dd18ae450d7334482a05bcc0
+                        <input type="password"  th:field="*{password}" autocomplete="off"><br>
                     </div>
                     <div>
                         <div>

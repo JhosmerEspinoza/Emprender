@@ -21,5 +21,20 @@ public class MainControlador {
     public String index(){
         return "index";
     }
-    
+    @GetMapping("inicio")
+    public String inicio(){
+        return "inicio";
+    }
+    @GetMapping("feed")
+    public String feed(){
+        return "feed";
+    }
+    @GetMapping("registroImagen")
+    public String registroimg(){
+        return "registroImagen";
+    }
+    @GetMapping("sIndex")
+    public String index2(){
+        return "sIndex";
+    }
 }

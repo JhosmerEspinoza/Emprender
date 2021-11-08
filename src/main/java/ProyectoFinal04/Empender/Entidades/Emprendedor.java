@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package ProyectoFinal04.Empender.Entidades;
-
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
@@ -15,14 +14,13 @@ import javax.persistence.ManyToOne;
  */
 @Entity
 public class Emprendedor extends Usuario{
-        
-    
     private String descripcion_perfil;
     private String mail;
     private String telefono;
     private String direccion;
     @ManyToOne
     private Publicacion publicacion;
+
 
     public String getDescripcion_perfil() {
         return descripcion_perfil;
