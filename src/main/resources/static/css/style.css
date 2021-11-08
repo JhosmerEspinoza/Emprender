@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: silver;
+}
+
+.cabecera{
+    background-color: darkslateblue;
+    width: 100%;
+}
+
+.cabecera a{
+    text-decoration: none;
+    color: white;
+}
+
+.empresa{
+    width: 50%;
+}
+
+.empresa .logo{
+    width: 3%;
+}
+
+#logo{
+    width: 100%;
+}
