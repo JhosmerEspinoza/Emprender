@@ -17,7 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class MainControlador {
     
-    
+    @GetMapping("editarPerfil")
+    public String editProfile(){
+        return "EditarPerfil";
+    }
     @GetMapping("inicio")
     public String inicio(){
         return "inicio";
