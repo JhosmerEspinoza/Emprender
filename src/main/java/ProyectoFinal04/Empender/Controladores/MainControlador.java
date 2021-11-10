@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class MainControlador {
     
-    @GetMapping("index")
-    public String index(){
-        return "index";
-    }
+    
     @GetMapping("inicio")
     public String inicio(){
         return "inicio";
@@ -36,5 +33,17 @@ public class MainControlador {
     @GetMapping("sIndex")
     public String index2(){
         return "sIndex";
+    }
+    @GetMapping("navbar")
+    public String nav(){
+        return "navbar";
+    }
+    @GetMapping("profile")
+    public String perfil(){
+        return "profile";
+    }
+    @GetMapping("home")
+    public String home(){
+        return "home";
     }
 }

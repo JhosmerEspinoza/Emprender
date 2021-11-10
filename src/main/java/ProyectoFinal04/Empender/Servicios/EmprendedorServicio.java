@@ -11,7 +11,6 @@ import ProyectoFinal04.Empender.Excepciones.Errores;
 import ProyectoFinal04.Empender.Repositorios.EmprendedorRepositorio;
 import ProyectoFinal04.Empender.Repositorios.UsuarioRepositorio;
 import ProyectoFinal04.Empender.enums.Roles;
-import java.io.File;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -72,7 +71,6 @@ public class EmprendedorServicio {
             emprendedor.setTelefono(telefono);
             emprendedor.setDireccion(direccion);
             emprendedor.setDescripcion_perfil(descripcionPerfil);
-            repositorioEmprendedor.save(emprendedor);
         }
     }
 

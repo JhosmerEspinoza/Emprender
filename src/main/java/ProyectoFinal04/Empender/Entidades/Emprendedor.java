@@ -5,8 +5,6 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-
 
 /**
  *
@@ -18,8 +16,7 @@ public class Emprendedor extends Usuario{
     private String mail;
     private String telefono;
     private String direccion;
-    @ManyToOne
-    private Publicacion publicacion;
+    
 
 
     public String getDescripcion_perfil() {
@@ -54,13 +51,6 @@ public class Emprendedor extends Usuario{
         this.direccion = direccion;
     }
 
-    public Publicacion getPublicacion() {
-        return publicacion;
-    }
-
-    public void setPublicacion(Publicacion publicacion) {
-        this.publicacion = publicacion;
-    }
     
     
     
