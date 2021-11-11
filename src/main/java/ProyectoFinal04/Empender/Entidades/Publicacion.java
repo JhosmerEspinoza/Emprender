@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -28,14 +27,9 @@ public class Publicacion implements Serializable{
     private String id;
     private String descripccion;
     private File foto;
-    @OneToMany
-    private List <Etiqueta> etiqueta;
+    private String comentario;
     @ManyToOne
     private Emprendedor emprendedor;
-    
-    public List<Etiqueta> getEtiqueta() {
-        return etiqueta;
-    }
     
     public String getDescripccion() {
         return descripccion;

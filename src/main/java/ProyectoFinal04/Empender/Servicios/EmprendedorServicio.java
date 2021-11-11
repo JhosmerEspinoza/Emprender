@@ -71,7 +71,6 @@ public class EmprendedorServicio {
             emprendedor.setTelefono(telefono);
             emprendedor.setDireccion(direccion);
             emprendedor.setDescripcion_perfil(descripcionPerfil);
-            repositorioEmprendedor.save(emprendedor);
         }
     }
 

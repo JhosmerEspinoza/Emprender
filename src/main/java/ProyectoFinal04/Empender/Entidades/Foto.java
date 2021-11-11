@@ -27,7 +27,7 @@ public class Foto implements Serializable {
     private String nombre;
     private String mime;
     @Lob @Basic(fetch = FetchType.LAZY)
-    private byte [] contenido;
+    private byte[] contenido;
 
     public Foto() {
     }

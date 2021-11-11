@@ -7,6 +7,7 @@ body {
   height: 100vh;
 }
 
+
 .login-box {
   width: 320px;
   height: 420px;
@@ -62,7 +63,7 @@ body {
   border: none;
   outline: none;
   height: 40px;
-  background: #b80f22;
+  background: #3572F7;
   color: #fff;
   font-size: 18px;
   border-radius: 20px;
@@ -70,7 +71,7 @@ body {
 
 .login-box input[type="submit"]:hover {
   cursor: pointer;
-  background: #ffc107;
+  background: blue;
   color: #000;
 }
 
