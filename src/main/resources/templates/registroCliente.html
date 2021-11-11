@@ -2,7 +2,7 @@
 
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
-        <title>Registrarse como emprendedor</title>
+        <title>Registrarse como cliente</title>
         <link rel="icon" type="icon" href="img/E.png">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,15 +28,9 @@
                             <span th:text="${error}"></span>
                             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
                         </div>
-                        <form th:action="@{/save}" method="post" th:object="${emprendedor}">
+                        <form th:action="@{/saveUser}" method="post" th:object="${usuario}">
                             <label for="nombre">Nombre y apellido</label>
                             <input type="text" placeholder="Ingrese su nombre completo" th:field="*{nombre}" name="nombre" autocomplete="off">
-                            <label for="mail">Mail</label>
-                            <input type="text" placeholder="Ingrese su mail de contacto" th:field="*{mail}" name="mail" autocomplete="off">
-                            <label for="telefono">Telefono</label>
-                            <input type="text" placeholder="Ingrese su numero de telefono" th:field="*{telefono}" name="telefono" autocomplete="off">                            
-                            <label for="direccion">Direccion</label>
-                            <input type="text" placeholder="Ingrese su direccion" th:field="*{direccion}" name="direccion" autocomplete="off">
                             <!-- USERNAME INPUT -->
                             <label for="nombreUsuario">Nombre de usuario</label>
                             <input type="text" placeholder="Ingrese su usuario" th:field="*{nombreUsuario}" name="nombreUsuario" autocomplete="off">
@@ -47,7 +41,7 @@
                                 <input class="boton" type="reset" value="Borrar">
                                 <input class="boton" type="submit" value="Aceptar">
                             </div>
-                            <button id="cliente" class="boton"><a href="registroCliente.html">Soy cliente</a></button>
+                            <button id="cliente" class="boton"><a href="registroEmprendedor.html">Soy Emprendedor</a></button>
                         </form>
                     </div>                        
                 </div>
@@ -57,4 +51,3 @@
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>
-

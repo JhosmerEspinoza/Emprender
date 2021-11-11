@@ -1,93 +1,97 @@
-*{
-    margin: 0;
-    padding: 0;
-}
-
-.contenedor{
-    margin: 0 5%;
-}
-
-.cabecera{
-    background-color: midnightblue;
-    width: 100%;
+.profile-content{
     display: flex;
+    justify-content: space-between;
 }
 
-.empresa, .navbar{
-    width: 50%;
-    display: flex;
-    align-items: center;
-    padding: 0.3rem;
+.tab-content{
+    width: 70%;
 }
 
-.empresa{
-    justify-content: left;
+/* Estilos del aside,seccion donde esta el perfil y las etiquetas*/
+.aside{
+    width: 25%;
+}
+/*Aside - seccion de perfil*/
+.perfil-card, .intereses, .publicar, .publicacion{
+    transition: box-shadow 0.4s ease;
+    background-color: white;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
 }
 
-.navbar{
-    justify-content: right;
+.perfil-card:hover{
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
 }
-
-.empresa .logo{
-    width: 3%;
+.perfil-card__miPerfil{
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #212529;
 }
-
-#logo{
-    width: 100%;
-}
-
-p{
-    margin: 1rem;
-}
-.main{
-    height: 100%;
-    margin: 1rem;
-    margin-top: 4rem;
-    display: flex;
-    padding: 0 2rem;
-}
-
-.presentacion, .inicio-sesion{
-    width: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.navbar div{
-    width: 15%;
-    margin-left: 1rem;
-    border-bottom: 0.1rem solid white;
-}
-
-.presentacion h1{
-    font-family: 'Playfair Display', serif;
-}
-
-button{
-    background-color: navy;
+.perfil-card h2{
+    text-align: center;
     color: white;
 }
-.SosNuevo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}
 
-h6{
+.perfil-card p{
     text-align: center;
 }
 
-input{
-    border-radius: 0.3rem;
+.perfil-card__foto{
     width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
-.inicio-sesion__content{
-    transition: box-shadow 0.4s ease, background-color 0.4s ease;
-    padding: 0 3rem;
-    border-radius: 0.5rem;
-    border-radius: 0.5rem;
-    box-shadow: 0 0.1rem 2rem rgba(0,0,0,0.3);
+#foto-perfil{
+    width: 50%;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+/*Datos del perfil*/
+.datos{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.datos li{
+    margin: 0.5rem;
+}
+.datos img{
+    width: 1.5rem;
+    object-fit: cover;
+}
+
+.datos p{
+    display: inline;
+    margin-left: 1rem;
+}
+/*Intereses del usuario*/
+.intereses{
+    padding: 1rem;
+}
+.etiquetas p{
+    padding: 0.1rem 0.4rem;
+    display: inline;
+    width: min-content;
+    color: white;
+    background-color: #212529;
+}
+
+.intereses__buscador{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid slategrey;
+    display: flex;
+    justify-content: center;
+}
+.intereses__buscador img{
+    width: 2.5rem;
 }
