@@ -7,10 +7,12 @@ package ProyectoFinal04.Empender.Entidades;
 
 import java.io.File;
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -26,19 +28,15 @@ public class Publicacion implements Serializable{
     private String id;
     private String descripccion;
     private File foto;
-//    @ManyToOne
-//    private Etiqueta etiqueta;
+    @OneToMany
+    private List <Etiqueta> etiqueta;
     @ManyToOne
-    private Comentario comentario;
+    private Emprendedor emprendedor;
     
-//    public Etiqueta getEtiqueta() {
-//        return etiqueta;
-//    }
-//
-//    public void setEtiqueta(Etiqueta etiqueta) {
-//        this.etiqueta = etiqueta;
-//    }
-
+    public List<Etiqueta> getEtiqueta() {
+        return etiqueta;
+    }
+    
     public String getDescripccion() {
         return descripccion;
     }
@@ -63,16 +61,12 @@ public class Publicacion implements Serializable{
         this.id = id;
     }
 
-    public Comentario getComentario() {
-        return comentario;
+    public Emprendedor getEmprendedor() {
+        return emprendedor;
     }
 
-    public void setComentario(Comentario comentario) {
-        this.comentario = comentario;
+    public void setEmprendedor(Emprendedor emprendedor) {
+        this.emprendedor = emprendedor;
     }
-    
-    
-    
-    
     
 }
