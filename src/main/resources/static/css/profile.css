@@ -1,0 +1,97 @@
+.profile-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+.tab-content{
+    width: 70%;
+}
+
+/* Estilos del aside,seccion donde esta el perfil y las etiquetas*/
+.aside{
+    width: 25%;
+}
+/*Aside - seccion de perfil*/
+.perfil-card, .intereses, .publicar, .publicacion{
+    transition: box-shadow 0.4s ease;
+    background-color: white;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0;
+    cursor: pointer;
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+}
+
+.perfil-card:hover{
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+}
+.perfil-card__miPerfil{
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #212529;
+}
+.perfil-card h2{
+    text-align: center;
+    color: white;
+}
+
+.perfil-card p{
+    text-align: center;
+}
+
+.perfil-card__foto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#foto-perfil{
+    width: 50%;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+/*Datos del perfil*/
+.datos{
+    display: flex;
+    justify-content: flex-start;
+    padding-top: 0.5rem;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.datos li{
+    margin: 0.5rem;
+}
+.datos img{
+    width: 1.5rem;
+    object-fit: cover;
+}
+
+.datos p{
+    display: inline;
+    margin-left: 1rem;
+}
+/*Intereses del usuario*/
+.intereses{
+    padding: 1rem;
+}
+.etiquetas p{
+    padding: 0.1rem 0.4rem;
+    display: inline;
+    width: min-content;
+    color: white;
+    background-color: #212529;
+}
+
+.intereses__buscador{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid slategrey;
+    display: flex;
+    justify-content: center;
+}
+.intereses__buscador img{
+    width: 2.5rem;
+}
