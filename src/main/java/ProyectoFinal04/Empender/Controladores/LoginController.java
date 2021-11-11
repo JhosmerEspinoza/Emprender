@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Moriconi
  */
 @Controller
-@RequestMapping("/login")
+@RequestMapping("/home")
 public class LoginController {
     
     @GetMapping("")
@@ -25,7 +25,7 @@ public class LoginController {
         if(error != null){
             model.addAttribute("error", "Nombre de usuario o contraseña incorrecto");
         }
-        return "login";
+        return "home";
     }
     
 }

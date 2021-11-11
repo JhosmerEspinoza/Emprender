@@ -52,19 +52,23 @@ public class ResgistroController {
         model.addAttribute("emprendedor", new Emprendedor());
         return "registroEmprendedor";
     }
-
+    @GetMapping("registroCliente")
+    public String cliente(Model model){
+        model.addAttribute("cliente", new Usuario());
+        return "registroCliente";
+    }
 
     
     @PostMapping("/save")
     public String registroEmprendedor(@ModelAttribute Emprendedor emprendedor) throws Exception {
         servicioEmprendedor.save(emprendedor);
-        return "redirect:/registroEmprendedor";
+        return "redirect:/home";
     }
 
     @PostMapping("/saveUser")
     public String registroUsuario(@ModelAttribute Usuario usuario) throws Exception {
         servicioUsuario.save(usuario);
-        return "redirect:/registroEmprendedor";
+        return "redirect:/home";
     }
 
 

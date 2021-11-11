@@ -45,8 +45,5 @@ public class MainControlador {
     public String perfil(){
         return "profile";
     }
-    @GetMapping("home")
-    public String home(){
-        return "home";
-    }
+   
 }
