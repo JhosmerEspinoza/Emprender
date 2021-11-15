@@ -12,14 +12,10 @@ import org.hibernate.annotations.GenericGenerator;
 
 @Entity
 public class Comentario {
-<<<<<<< HEAD
-   
-=======
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
     private String texto;
     private String cliente_id;
     private String emprendedor_id;
@@ -70,5 +66,4 @@ public class Comentario {
         this.alta = alta;
     }
     
->>>>>>> 466791f9729f9b7d917e15a6c1416661ea65f64a
 }

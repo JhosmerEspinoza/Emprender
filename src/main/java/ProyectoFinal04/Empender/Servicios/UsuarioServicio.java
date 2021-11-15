@@ -41,7 +41,6 @@ public class UsuarioServicio {
         Optional<Usuario> rta = repositorioUsuario.findById(id);
         if (rta.isPresent()) {
             Usuario usuario = rta.get();
-            usuario.setFotoPerfil(foto);
             repositorioUsuario.save(usuario);
         }
     }
