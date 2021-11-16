@@ -7,10 +7,13 @@ package ProyectoFinal04.Empender.Entidades;
 
 import java.io.File;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import org.hibernate.annotations.GenericGenerator;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -23,17 +26,35 @@ public class Comentario implements Serializable {
     private String id;
     
     private String texto;
-    private File foto;
-    @DateTimeFormat
-    @Temporal(javax.persistence.TemporalType.DATE)
-    private Date fecha;
+    @ManyToOne
+    private Publicacion publicacion;
+    private String fecha;
     private Boolean alta;
-
+ 
     public Comentario() {
         alta = true;
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        fecha = dtf.format(LocalDateTime.now());
     }
 
     
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    
+    public Publicacion getPublicacion() {
+        return publicacion;
+    }
+
+    public void setPublicacion(Publicacion publicacion) {
+        this.publicacion = publicacion;
+    }
+
     public String getId() {
         return id;
     }
@@ -49,23 +70,6 @@ public class Comentario implements Serializable {
     public void setTexto(String texto) {
         this.texto = texto;
     }
-
-    public File getFoto() {
-        return foto;
-    }
-
-    public void setFoto(File foto) {
-        this.foto = foto;
-    }
-
-    public Date getFecha() {
-        return fecha;
-    }
-
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
-
 
     public Boolean getAlta() {
         return alta;
