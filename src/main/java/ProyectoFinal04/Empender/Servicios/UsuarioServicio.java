@@ -64,6 +64,7 @@ public class UsuarioServicio implements UserDetailsService {
         
         //
         return repositorioUsuario.save(user);
+        
     }
 
     @Transactional

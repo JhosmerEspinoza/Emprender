@@ -30,6 +30,8 @@ public class EmprendedorServicio {
     private UsuarioServicio servicioUsuario;
     @Autowired
     private UsuarioRepositorio repositorioUsuario;
+    @Autowired
+    private NotificacionServicio servicioNotif;
 
     @Transactional
     public Emprendedor save(Emprendedor usuario) throws Exception {
@@ -42,7 +44,10 @@ public class EmprendedorServicio {
         usuario.setPassword(encoder.encode(password));
         //Seteo de rol
         usuario.setRol(Roles.EMPRENDEDOR);
+        
+        servicioNotif.enviarMail("Bienvenidos a emprender", "Emprender", usuario.getMail());
         return repositorioEmprendedor.save(usuario);
+        
     }
 
     @Transactional
