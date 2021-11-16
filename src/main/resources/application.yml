@@ -1,5 +1,6 @@
 spring:
- #Configuraci\u00f3n MySQL
+    
+ #Configuracion MySQL
   datasource: 
     url: jdbc:mysql://localhost:3306/emprender?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
     username: root
@@ -17,3 +18,17 @@ spring:
 #Que thymeleaf no guarde datos en cache
   thymeleaf:
     cache: false 
+    
+#Configuracion mail
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: equipo.emprender.autenticacion@gmail.com
+    password: emprender123
+    properties:
+        mail:
+            smtp:
+                auth: true
+                starttls:
+                    required: true
+                    enable: true

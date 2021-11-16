@@ -13,7 +13,6 @@ import javax.persistence.Entity;
 @Entity
 public class Emprendedor extends Usuario{
     private String descripcion_perfil;
-    private String mail;
     private String telefono;
     private String direccion;
     
@@ -27,13 +26,6 @@ public class Emprendedor extends Usuario{
         this.descripcion_perfil = descripcion_perfil;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
 
     public String getTelefono() {
         return telefono;
