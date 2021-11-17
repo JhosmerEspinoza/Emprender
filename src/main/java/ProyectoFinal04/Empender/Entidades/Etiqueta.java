@@ -5,35 +5,37 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 /**
  *
  * @author lucas
  */
-public enum Etiqueta {
-    DISEÑO(1, "Diseño"), MODA(2, "Moda"), SALUD(3, "Salud"), DECORACION(4, "Decoracion"), REPOSTERIA(5, "Reposteria"), PANADERIA(6, "Panaderia"), DEPORTE(7, "Deporte"), COSMETICA(8, "Cosmética"), INDUSTRIA(9, "Industria"), PROGRAMACION(10, "Programación");
+@Entity
+public class Etiqueta implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+    private String contenido;
 
-    private Integer codigo;
-    private String etiqueta;
-
-    private Etiqueta(Integer codigo, String etiqueta) {
-        this.codigo = codigo;
-        this.etiqueta = etiqueta;
+    public Integer getId() {
+        return id;
     }
 
-    public Integer getCodigo() {
-        return codigo;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public void setCodigo(Integer codigo) {
-        this.codigo = codigo;
+    public String getContenido() {
+        return contenido;
     }
 
-    public String getEtiqueta() {
-        return etiqueta;
+    public void setContenido(String contenido) {
+        this.contenido = contenido;
     }
-
-    public void setEtiqueta(String etiqueta) {
-        this.etiqueta = etiqueta;
-    }
-
+    
 }
