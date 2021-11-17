@@ -12,8 +12,6 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,9 +20,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author jhosenny
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
-
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
@@ -97,5 +93,4 @@ public class Usuario implements Serializable {
     public void setMail(String mail) {
         this.mail = mail;
     }
-
 }

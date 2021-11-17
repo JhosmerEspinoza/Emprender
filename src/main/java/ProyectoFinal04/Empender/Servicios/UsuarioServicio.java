@@ -25,10 +25,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author jhosenny
- */
+
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
@@ -40,7 +37,7 @@ public class UsuarioServicio implements UserDetailsService {
     /*
     @Transactional
     public void registrar(String nombre, String nombreUsuario, String password){
-        Usuario user=new Usuario();
+        Usuario user = new Usuario();
         user.setNombre(nombre);
         user.setNombreUsuario(nombreUsuario);
         user.setPassword(password);

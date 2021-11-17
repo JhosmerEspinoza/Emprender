@@ -5,10 +5,42 @@
  */
 package ProyectoFinal04.Empender.Servicios;
 
-/**
- *
- * @author usuario
- */
+import ProyectoFinal04.Empender.Entidades.Comentario;
+import ProyectoFinal04.Empender.Repositorios.ComentarioRepositorio;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
 public class ComentarioServicio {
+//    @Autowired
+//    private Comentario comentario;
+    @Autowired
+    private ComentarioRepositorio comentarioRepositorio;
     
+    public void crearComentario(String texto){
+        Comentario coment = new Comentario();
+        coment.setTexto(texto);
+        comentarioRepositorio.save(coment);
+    }
+    public void modificarComentario(String id, String texto) {
+        Optional<Comentario> respuesta = comentarioRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Comentario coment = respuesta.get();
+            coment.setTexto(texto);
+            comentarioRepositorio.save(coment);
+        } else {
+            //throw new ErrorServicio("El autor ingresado no se encuentra");
+        }
+    }
+    public void eliminar(String id) {
+        Optional<Comentario> respuesta = comentarioRepositorio.findById(id);
+        if (respuesta.isPresent()) {
+            Comentario coment = respuesta.get();
+            coment.setAlta(Boolean.FALSE);
+           comentarioRepositorio.save(coment);
+        } else {
+            //throw new ErrorServicio("El autor ingresado no se encuentra");
+        }
+    }
 }
