@@ -22,9 +22,20 @@ public class NotificacionServicio {
     public void enviarMail(String cuerpo, String titulo, String destinatario){
         SimpleMailMessage mail = new SimpleMailMessage();
         mail.setTo(destinatario);
-        mail.setFrom("gastonmoriconi@hotmail.com");
+        mail.setFrom("equipo.emprender.autenticacion@gmail.com");
         mail.setSubject(titulo);
         mail.setText(cuerpo);
+        
+        mailSender.send(mail); 
+    }
+    
+    @Async
+    public void enviarMailRegistro(String cuerpo, String titulo, String destinatario, String link){
+        SimpleMailMessage mail = new SimpleMailMessage();
+        mail.setTo(destinatario);
+        mail.setFrom("equipo.emprender.autenticacion@gmail.com");
+        mail.setSubject(titulo);
+        mail.setText(cuerpo+" "+link);
         
         mailSender.send(mail);
         
