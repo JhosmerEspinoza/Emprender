@@ -6,7 +6,6 @@
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Cliente;
-import ProyectoFinal04.Empender.Entidades.Usuario;
 import ProyectoFinal04.Empender.Excepciones.Errores;
 import ProyectoFinal04.Empender.Repositorios.ClienteRepositorio;
 import java.io.File;
