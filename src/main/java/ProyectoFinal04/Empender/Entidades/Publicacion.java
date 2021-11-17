@@ -29,7 +29,6 @@ public class Publicacion implements Serializable{
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid", strategy="uuid2")
     private String id;
-<<<<<<< HEAD
     private String descripccion;
     private File foto;
     @ManyToOne
@@ -37,7 +36,7 @@ public class Publicacion implements Serializable{
     @ManyToOne
     private Comentario comentario;
     
-    private String descripccion;
+    private String Descripccion;
     private Boolean alta;
     @OneToOne
     private Foto publicacionIMG;

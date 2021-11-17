@@ -6,9 +6,8 @@
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Cliente;
-import ProyectoFinal04.Empender.Excepciones.Errores;
+import ProyectoFinal04.Empender.Excepciones.ErrorServicio;
 import ProyectoFinal04.Empender.Repositorios.ClienteRepositorio;
-import java.io.File;
 import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,7 +48,7 @@ public class ClienteServicio {
         }
     }
     
-    public void modificarPass(String id, String claveActual, String claveNueva) throws Errores{
+    public void modificarPass(String id, String claveActual, String claveNueva) throws ErrorServicio{
         servicioUsuario.modificarClave(id, claveActual, claveNueva);
     }
     

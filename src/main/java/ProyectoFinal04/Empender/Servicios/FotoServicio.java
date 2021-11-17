@@ -6,6 +6,7 @@
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Foto;
+import ProyectoFinal04.Empender.Excepciones.ErrorServicio;
 import ProyectoFinal04.Empender.Repositorios.FotoRepositorio;
 import java.io.IOException;
 import java.util.Optional;
@@ -25,7 +26,7 @@ public class FotoServicio {
     private FotoRepositorio fotorepositorio;
 
     @Transactional
-    public Foto guardarfoto(MultipartFile archivo) {
+    public Foto guardarfoto(MultipartFile archivo) throws ErrorServicio {
         if (archivo != null) {
             try {
                 Foto foto = new Foto();
