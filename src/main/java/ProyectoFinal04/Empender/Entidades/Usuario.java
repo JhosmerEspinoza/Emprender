@@ -12,6 +12,11 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+<<<<<<< HEAD
+=======
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+>>>>>>> 5f52517a1f2cee6e510170121f71dd14eb3cc57e
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 

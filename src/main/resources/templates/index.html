@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<<<<<<< HEAD
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
@@ -10,7 +9,6 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='/src/main/resources/static/css/style.css'>
 </head>
-
 <body>
     <div class="contenedor">
         <header class="cabecera">
@@ -22,6 +20,20 @@
                 <div>
                     <a class="logo" href="index.html" title="Emprender">Emprender</a>
                 </div>
+        <div class="w3-container" id="where" style="padding-bottom:32px;">
+            <div class="w3-content" style="max-width:700px">
+
+                <p><span class="w3-tag">ATENCION</span></p>
+                <p><strong>Registrarse</strong></p>
+                <form th:action="@{/saveUser}" method="POST" th:object="${usuario}">
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" th:field="*{nombre}" autocomplete=off placeholder="Nombre" required name="name"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="text" th:field="*{nombreUsuario}" autocomplete=off placeholder="Nombre de usuario"required name="user"></p>
+                    <p><input class="w3-input w3-padding-16 w3-border" type="password"  th:field="*{password}" autocomplete=off placeholder="Contraseña" required name="pass"></p>
+                    <button class="w3-button w3-black" type="submit">REGISTRAR</button>
+                    
+                </form><br>
+                <button class="w3-button w3-black" onclick="location.href='login'">Iniciar sesion</button>
+                <button class="w3-button w3-black" onclick="location.href='registroEmprendedor'">Soy emprendedor</button>
             </div>
             <div class="navbar">
                 <div>
@@ -45,7 +57,6 @@
 </body>
 
 </html>
-=======
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -89,4 +100,3 @@ and open the template in the editor.
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     </body>
 </html>
->>>>>>> 083f2a431b4502cf313d2cc5e35513938627c4cb
