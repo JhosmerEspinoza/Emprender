@@ -5,12 +5,16 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
+import ProyectoFinal04.Empender.enums.Roles;
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -18,31 +22,32 @@ import org.hibernate.annotations.GenericGenerator;
  * @author jhosenny
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
-      @Id
-   @GeneratedValue(generator = "uuid")
-   @GenericGenerator(name = "uuid", strategy = "uuid2")
-    private Integer Edad;
-    private String nombre;
-    private String apellido;
-    private String nombreDeUsuario;
-    private String contrasenha;
-    private File foto;
-    private Integer seguidores;
-    private String descripcion_perfil;
-    private String mail;
-    private String telefono;
-    private String direccion;
-    @ManyToOne
-    private Publicacion publicacion;
 
-    
-    public Integer getEdad() {
-        return Edad;
+    @Id
+    @GeneratedValue(generator = "uuid")
+    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    private String id;
+    private String nombre;
+    private String nombreUsuario;
+    private String password;
+    private String mail;
+    @OneToOne
+    private Foto fotoPerfil;
+    @Enumerated(EnumType.STRING)
+    private Roles rol;
+
+    public Usuario() {
+
     }
 
-    public void setEdad(Integer Edad) {
-        this.Edad = Edad;
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -53,54 +58,44 @@ public class Usuario implements Serializable {
         this.nombre = nombre;
     }
 
-    public String getApellido() {
-        return apellido;
+    public String getNombreUsuario() {
+        return nombreUsuario;
     }
 
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
+    public void setNombreUsuario(String nombreUsuario) {
+        this.nombreUsuario = nombreUsuario;
     }
 
-    public String getNombreDeUsuario() {
-        return nombreDeUsuario;
+    public String getPassword() {
+        return password;
     }
 
-    public void setNombreDeUsuario(String nombreDeUsuario) {
-        this.nombreDeUsuario = nombreDeUsuario;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getContrasenha() {
-        return contrasenha;
+    public Foto getFotoPerfil() {
+        return fotoPerfil;
     }
 
-    public void setContrasenha(String contrasenha) {
-        this.contrasenha = contrasenha;
+    public void setFotoPerfil(Foto fotoPerfil) {
+        this.fotoPerfil = fotoPerfil;
     }
 
-    public File getFoto() {
-        return foto;
+    public Roles getRol() {
+        return rol;
     }
 
-    public void setFoto(File foto) {
-        this.foto = foto;
+    public void setRol(Roles rol) {
+        this.rol = rol;
     }
 
-    public Integer getSeguidores() {
-        return seguidores;
-    }
-
-    public void setSeguidores(Integer seguidores) {
-        this.seguidores = seguidores;
-    }
-    
-    public void setMail(String mail){
-        this.mail=mail;
-    }
-    public String getMail(){
+    public String getMail() {
         return mail;
     }
-    
-    
-    
-    
+
+    public void setMail(String mail) {
+        this.mail = mail;
+    }
+
 }

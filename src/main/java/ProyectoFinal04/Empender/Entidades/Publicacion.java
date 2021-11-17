@@ -28,15 +28,12 @@ public class Publicacion implements Serializable{
     private File foto;
     private String comentario;
     @ManyToOne
-    private Etiqueta etiqueta;
+    private Emprendedor emprendedor;
+    
 
-    public Etiqueta getEtiqueta() {
-        return etiqueta;
+    public Publicacion() {
     }
 
-    public void setEtiqueta(Etiqueta etiqueta) {
-        this.etiqueta = etiqueta;
-    }
 
     public String getDescripccion() {
         return descripccion;
@@ -70,13 +67,6 @@ public class Publicacion implements Serializable{
         this.id = id;
     }
 
-    public Publicacion(String etiqueta, String descripccion, File foto, String comentario, String id) {
-        this.etiqueta = etiqueta;
-        this.descripccion = descripccion;
-        this.foto = foto;
-        this.comentario = comentario;
-        this.id = id;
-    }
     
     
 }

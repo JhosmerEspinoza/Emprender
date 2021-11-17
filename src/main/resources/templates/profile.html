@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <!--  This file has been downloaded from bootdey.com @bootdey on twitter -->
+        <!--  All snippets are MIT license http://bootdey.com/license -->
+        <title>Mi perfil</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <link rel="icon" type="icon" href="img/E.png">
+        <link rel="stylesheet" href="/css/styleP.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/profile.css" type="text/css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.1/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body>
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+            <div class="container-fluid">
+                <img src="img/E.png" alt="" width="30" height="30" class="d-inline-block align-text-top">
+                <a class="navbar-brand" href="#">Emprender</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                        </li>
+
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Perfil
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Ir a mi perfil</a></li>
+                                <li><a class="dropdown-item" href="#">Editar perfil</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Cerrar Sesion</a>        
+                        </li>
+                    </ul>
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                        <button type="button" class="btn btn-outline-info">Buscar</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="content" class="content content-full-width">
+
+                        <!-- begin profile -->
+                        <div class="profile">
+                            <div class="profile-header">
+                                <!-- BEGIN profile-header-cover -->
+                                <div class="profile-header-cover"></div>
+                                <!-- END profile-header-cover -->
+                                <!-- BEGIN profile-header-content -->
+                                <div class="profile-header-content">
+
+                                    <!-- BEGIN profile-header-img -->
+                                    <div class="profile-header-img">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="">
+                                    </div>
+                                    <!-- END profile-header-img -->
+                                    <!-- BEGIN profile-header-info -->
+                                    <div class="profile-header-info">
+                                        <h4 class="m-t-10 m-b-5">Nombre emprendimiento</h4>
+                                        <p class="m-b-10">pequeña descripcion</p>
+
+                                    </div>
+                                    <!-- END profile-header-info -->
+                                </div>
+                                <!-- END profile-header-content -->
+                                <!-- BEGIN profile-header-tab -->
+
+                                <!-- END profile-header-tab -->
+                            </div>
+                        </div>
+                        <!-- end profile -->
+                        <!-- begin profile-content -->
+                        <div class="profile-content d-flex justify-content-between">
+                            <aside class="aside">
+                                <article class="perfil-card">
+                                    <div class="perfil-card__miPerfil">
+                                        <h2>Mis Datos</h2>
+                                        
+                                    </div>
+                                    <div class="datos">
+                                        <ul>
+                                            <li class="datos__direccion"><img src="icon/user.png" alt="Nombre de usuario">
+                                                <p>@gastonmoriconi</p>
+                                            </li>
+                                            <li class="datos__direccion"><img src="icon/location.png" alt="direccion">
+                                                <p>Av. Siempreviva 433</p>
+                                            </li>
+                                            <li class="datos__direccion"><img src="icon/call.png" alt="Telefono">
+                                                <p>+54 3467521177</p>
+                                            </li>
+                                             <li class="datos__direccion"><img src="icon/email.png" alt="Mail">
+                                                <p>moriconig5@gmail.com</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </article>
+                            </aside>
+                            <!-- begin tab-content -->
+                            <div class="tab-content p-0">
+                                <!-- begin #profile-post tab -->
+                                <div class="tab-pane fade active show" id="profile-post">
+
+                                    <!-- begin timeline -->
+                                    <ul class="timeline">
+                                        <li>
+                                            <!-- begin timeline-time -->
+
+                                            <!-- end timeline-time -->
+                                            <!-- begin timeline-icon -->
+                                            <div class="timeline-icon">
+                                                <a href="javascript:;">&nbsp;</a>
+                                            </div>
+                                            <!-- end timeline-icon -->
+                                            <!-- begin timeline-body -->
+                                            <div class="timeline-body">
+                                                <!-- USUARIO QUE HACE LA PUBLI-->
+                                                <div class="timeline-header">
+                                                    <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
+                                                    <span class="username"><a href="javascript:;">Sean Agu</a> <small></small></span>
+                                                </div>
+                                                <!--HASTA ACA -->
+                                                <!-- TEXTO PUBLICACION -->
+                                                <div class="timeline-content">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
+                                                        Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                                    </p>
+                                                </div>
+                                                <!--HASTA ACA -->
+
+                                                <div class="timeline-likes">
+                                                    <div class="stats-right">
+
+                                                        <span class="stats-text">21 Comments</span>
+                                                    </div>
+                                                    <div class="stats">
+                                                        <span class="fa-stack fa-fw stats-icon">
+                                                            <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                                                        </span>
+                                                        <span class="fa-stack fa-fw stats-icon">
+                                                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                                            <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                        <span class="stats-total">4.3k</span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <button type="button" class="btn btn-outline-info"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>Me gusta</button>
+                                                    <button type="button" class="btn btn-outline-info"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i>Comentar</button>
+
+                                                </div>
+                                                <div class="timeline-comment-box">
+                                                    <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+                                                    <div class="input">
+                                                        <form action="">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control rounded-corner" placeholder="Escribe un comentario...">
+                                                                <span class="input-group-btn p-l-10">
+                                                                    <button class="btn btn-outline-info" type="button">Comentar</button>
+                                                                </span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end timeline-body -->
+                                        </li>
+
+                                        <li>
+                                            <!-- begin timeline-time -->
+
+                                            <!-- end timeline-time -->
+                                            <!-- begin timeline-icon -->
+                                            <div class="timeline-icon">
+                                                <a href="javascript:;">&nbsp;</a>
+                                            </div>
+                                            <!-- end timeline-icon -->
+                                            <!-- begin timeline-body -->
+                                            <div class="timeline-body">
+                                                <!-- USUARIO QUE HACE LA PUBLI-->
+                                                <div class="timeline-header">
+                                                    <span class="userimage"><img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt=""></span>
+                                                    <span class="username"><a href="javascript:;">Sean Ngu</a> <small></small></span>
+                                                </div>
+                                                <!--HASTA ACA -->
+                                                <!-- TEXTO PUBLICACION -->
+                                                <div class="timeline-content">
+                                                    <p>
+                                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc faucibus turpis quis tincidunt luctus.
+                                                        Nam sagittis dui in nunc consequat, in imperdiet nunc sagittis.
+                                                    </p>
+                                                </div>
+                                                <!--HASTA ACA -->
+
+                                                <div class="timeline-likes">
+                                                    <div class="stats-right">
+
+                                                        <span class="stats-text">21 Comments</span>
+                                                    </div>
+                                                    <div class="stats">
+                                                        <span class="fa-stack fa-fw stats-icon">
+                                                            <i class="fa fa-heart fa-stack-1x fa-inverse t-plus-1"></i>
+                                                        </span>
+                                                        <span class="fa-stack fa-fw stats-icon">
+                                                            <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                                                            <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+                                                        </span>
+                                                        <span class="stats-total">4.3k</span>
+                                                    </div>
+                                                </div>
+                                                <div class="timeline-footer">
+                                                    <button type="button" class="btn btn-outline-info"><i class="fa fa-thumbs-up fa-fw fa-lg m-r-3"></i>Me gusta</button>
+                                                    <button type="button" class="btn btn-outline-info"><i class="fa fa-comments fa-fw fa-lg m-r-3"></i>Comentar</button>
+
+                                                </div>
+                                                <div class="timeline-comment-box">
+                                                    <div class="user"><img src="https://bootdey.com/img/Content/avatar/avatar3.png"></div>
+                                                    <div class="input">
+                                                        <form action="">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control rounded-corner" placeholder="Escribe un comentario...">
+                                                                <span class="input-group-btn p-l-10">
+                                                                    <button class="btn btn-outline-info" type="button">Comentar</button>
+                                                                </span>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- end timeline-body -->
+                                        </li>
+
+                                    </ul>
+                                    <!-- end timeline -->
+                                </div>
+                                <!-- end #profile-post tab -->
+                            </div>
+                            <!-- end tab-content -->
+                        </div>
+                        <!-- end profile-content -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript">
+
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    </body>
+</html>

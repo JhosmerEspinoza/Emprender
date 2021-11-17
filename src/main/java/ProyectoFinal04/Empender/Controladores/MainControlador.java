@@ -6,6 +6,7 @@
 package ProyectoFinal04.Empender.Controladores;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -13,12 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @author jhosenny
  */
 @Controller
-@RequestMapping("inicio")
+@RequestMapping("/")
 public class MainControlador {
     
-    @GetMapping("index")
-    public String index(){
-        return "index";
+    @GetMapping("editarPerfil")
+    public String editProfile(){
+        return "EditarPerfil";
     }
-    
+    @GetMapping("inicio")
+    public String inicio(){
+        return "inicio";
+    }
+    @GetMapping("feed")
+    public String feed(){
+        return "feed";
+    }
+    @GetMapping("registroImagen")
+    public String registroimg(){
+        return "registroImagen";
+    }
+    @GetMapping("sIndex")
+    public String index2(){
+        return "sIndex";
+    }
+    @GetMapping("navbar")
+    public String nav(){
+        return "navbar";
+    }
+    @GetMapping("profile")
+    public String perfil(){
+        return "profile";
+    }
+   
 }

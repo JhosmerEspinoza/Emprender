@@ -9,6 +9,10 @@ package ProyectoFinal04.Empender.Excepciones;
  *
  * @author jhosenny
  */
-public class Errores {
+public class Errores extends Exception{
     
+    public Errores(String msn){
+        super(msn);
+    }
+
 }

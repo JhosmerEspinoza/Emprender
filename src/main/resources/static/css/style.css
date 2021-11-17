@@ -3,22 +3,29 @@
     padding: 0;
 }
 
-body{
-    background-color: silver;
+.contenedor{
+    margin: 0 5%;
 }
 
 .cabecera{
-    background-color: darkslateblue;
+    background-color: midnightblue;
     width: 100%;
+    display: flex;
 }
 
-.cabecera a{
-    text-decoration: none;
-    color: white;
+.empresa, .navbar{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    padding: 0.3rem;
 }
 
 .empresa{
-    width: 50%;
+    justify-content: left;
+}
+
+.navbar{
+    justify-content: right;
 }
 
 .empresa .logo{
@@ -27,4 +34,60 @@ body{
 
 #logo{
     width: 100%;
+}
+
+p{
+    margin: 1rem;
+}
+.main{
+    height: 100%;
+    margin: 1rem;
+    margin-top: 4rem;
+    display: flex;
+    padding: 0 2rem;
+}
+
+.presentacion, .inicio-sesion{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar div{
+    width: 15%;
+    margin-left: 1rem;
+    border-bottom: 0.1rem solid white;
+}
+
+.presentacion h1{
+    font-family: 'Playfair Display', serif;
+}
+
+button{
+    background-color: navy;
+    color: white;
+}
+.SosNuevo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+h6{
+    text-align: center;
+}
+
+input{
+    border-radius: 0.3rem;
+    width: 100%;
+}
+
+.inicio-sesion__content{
+    transition: box-shadow 0.4s ease, background-color 0.4s ease;
+    padding: 0 3rem;
+    border-radius: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 2rem rgba(0,0,0,0.3);
 }
