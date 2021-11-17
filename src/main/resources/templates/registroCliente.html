@@ -23,7 +23,7 @@
                                 <img src="img/E2.png" class="avatar" alt="Avatar Image">                                 
                             </a>
                         </div>
-                        <h1>Registrarse como Emprendedor</h1>
+                        <h1>Registrarse como Cliente</h1>
                         <form th:action="@{/saveUser}" method="post" th:object="${cliente}">
                             <label for="nombre">Nombre y apellido</label>
                             <input type="text" placeholder="Ingrese su nombre completo" th:field="*{nombre}" required name="nombre" autocomplete="off">
@@ -37,7 +37,7 @@
                                 <input class="boton" type="reset" value="Borrar">
                                 <input class="boton" type="submit" value="Aceptar">
                             </div>
-                            <button id="cliente" class="boton"><a href="registroEmprendedor.html">Soy Emprendedor</a></button>
+                            <button id="cliente" class="boton"><a th:href="@{registroEmprendedor}">Soy Emprendedor</a></button>
                         </form>
                     </div>                        
                 </div>
