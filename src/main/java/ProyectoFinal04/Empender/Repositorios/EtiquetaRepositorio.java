@@ -15,10 +15,11 @@ import org.springframework.data.repository.query.Param;
  * @author jhosenny
  */
 @Repository
-public interface EtiquetaRepositorio extends JpaRepository<Etiqueta, Integer> {
+public interface EtiquetaRepositorio extends JpaRepository<Etiqueta, String> {
     
-    @Query("SELECT * from Etiqueta WHERE contenido = :contenido")
+    @Query("select * from Etiqueta WHERE contenido = :contenido")
     Etiqueta buscarEtiqueta(@Param("contenido") String contenido);
+  
     
 //    @Query("SELECT p from Publicacion p WHERE contenido = :contenido")
 //    

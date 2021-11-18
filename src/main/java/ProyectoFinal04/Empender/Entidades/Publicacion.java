@@ -13,6 +13,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -30,25 +31,39 @@ public class Publicacion implements Serializable{
     @GenericGenerator(name="uuid", strategy="uuid2")
     private String id;
     private String descripccion;
-    private File foto;
-    @ManyToOne
-    private Etiqueta etiqueta;
-    @ManyToOne
-    private Comentario comentario;
-    
-    private String Descripccion;
+//    @OneToMany
+//    private Etiqueta etiqueta;
+    //private List<Etiqueta> etiqueta;
     private Boolean alta;
     @OneToOne
     private Foto publicacionIMG;
     @OneToMany
     private List<Comentario> comentarios;
     private String fecha;
+    @ManyToOne
+    private Emprendedor emprendor;
 
     public Publicacion() {
         alta = true;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         fecha = dtf.format(LocalDateTime.now());
 
+    }
+
+//    public Etiqueta getEtiqueta() {
+//        return etiqueta;
+//    }
+//
+//    public void setEtiqueta(Etiqueta etiqueta) {
+//        this.etiqueta = etiqueta;
+//    }
+
+    public Emprendedor getEmprendor() {
+        return emprendor;
+    }
+
+    public void setEmprendor(Emprendedor emprendor) {
+        this.emprendor = emprendor;
     }
 
     public Foto getPublicacionIMG() {
@@ -100,4 +115,9 @@ public class Publicacion implements Serializable{
         comentario.setPublicacion(this);
         this.comentarios.add(comentario);
     }
+//    public void agregarEtiqueta(Etiqueta etiqueta) {
+//        this.etiqueta.add(etiqueta);
+//    }
+
+ 
 }

@@ -8,8 +8,12 @@ package ProyectoFinal04.Empender.Entidades;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import org.hibernate.annotations.GenericGenerator;
+
+
 
 /**
  *
@@ -18,15 +22,19 @@ import javax.persistence.Id;
 @Entity
 public class Etiqueta implements Serializable {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    @GeneratedValue(generator="uuid")
+    @GenericGenerator(name="uuid", strategy="uuid2")
+    private String id;
     private String contenido;
-
-    public Integer getId() {
+    @ManyToMany
+    private Publicacion publicacion;
+       
+   
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -36,6 +44,14 @@ public class Etiqueta implements Serializable {
 
     public void setContenido(String contenido) {
         this.contenido = contenido;
+    }
+
+    public Publicacion getPublicacion() {
+        return publicacion;
+    }
+
+    public void setPublicacion(Publicacion publicacion) {
+        this.publicacion = publicacion;
     }
     
 }

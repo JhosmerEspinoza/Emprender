@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="form-control">
+            <form th:action = "@{/guardarPublicacion}" method="POST" th:object="${publicacion}" enctype="multipart/form-data">
+                <label>Crear Publicacion</label>
+                <textarea type="text" placeholder="escribe una publicacion" th:field="*{descripccion}" class="form-control" required name="descripccion" autocomplete="off" rows="5" cols="33"></textarea>
+                <label>Insertar imagen</label>
+                <input type="file" name="archivo" accept="image/png, .jpeg, .jpg," class="form-control">
+                <button type="submit" class="form-label">publicar</button>
+            </form>
+        </div>
+        <div class="w3-row-padding w3-padding-64 w3-container">
+            <div class="w3-content">
+                <div class="w3-twothird">
+                    <h1>Publicaciones</h1>
+                    <table class="table table-dark table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Texto</th>
+                                <th>comentario</th>
+                                <th>comentarios</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="publicacion : ${publicaciones}">
+                                <td th:text="${publicacion.descripccion} "rows="3" cols="5"></td>
+                                <td>
+                                    <form th:action = "@{/guardarComentario}" method="POST" th:object="${comentario}">
+                                        <label>Comentar</label>
+                                        <div hidden><input th:value="${publicacion.id}" th:name ="id_publicacion"></div>
+                                        <textarea type="text" placeholder="escribe un comentario" th:field="*{texto}" class="form-control" required name="texto" autocomplete="off" rows="3" cols="20"></textarea>
+                                        <button type="submit" class="form-label">publicar</button>
+                                    </form>
+                                </td>
+                                <td th:action = "@{/mostrarComentario}" method="GET" th:object="${comentarios}">
+                                    <ul th:each="comentario : ${comentarios}"> 
+                                        <li th:text="${comentario.texto}"></li>
+                                    </ul>
+                                </td>
+                                <!--                                <td><img th:src="${publicacion.publicacionIMG.contenido}"/></td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="w3-third w3-center">
+                    <i class="fa fa-anchor w3-padding-64 w3-text-red"></i>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
