@@ -144,6 +144,10 @@ public class EmprendedorServicio {
         servicioUsuario.modificarClave(id, claveActual, claveNueva);
     }
 
+    public Optional<Emprendedor> findById(String id) {
+        return repositorioEmprendedor.findById(id);
+    }
+        
     public Usuario findByNombreUsuario(String nombreUsuario) {
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }

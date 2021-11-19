@@ -61,13 +61,18 @@ public class UsuarioServicio implements UserDetailsService {
         Foto foto = servicioFoto.guardarfoto(fotoPerfil);
         user.setFotoPerfil(foto);
         //
+        
+        /* MAIL DE CONFIRMACION
         String codigoVerificacion =  user.getId().substring(0,5)+String.valueOf((int) (Math.random()*1000) );
         user.setCodigoVerificacion(codigoVerificacion);
         
         String mensaje =  "Bienvenidx a emprender, ingrese al siguiente link para verificar su cuenta: ";
         String link = "localhost:8080/verificarCuenta?idUser="+user.getId()+"&verificacion="+user.getCodigoVerifiacion();
-        repositorioUsuario.save(user);
         servicioNotificacion.enviarMailRegistro(mensaje, "Emprender", user.getMail(), link);
+        */
+        
+        repositorioUsuario.save(user);
+        
     }
 
     @Transactional
@@ -95,7 +100,9 @@ public class UsuarioServicio implements UserDetailsService {
     public Optional<Usuario> findById(String id) {
         return repositorioUsuario.findById(id);
     }
-
+    public Usuario buscarPorId(String id){
+        return repositorioUsuario.buscarPorId(id);
+    }
     public Usuario findByNombreUsuario(String nombreUsuario) {
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
@@ -188,6 +195,15 @@ public class UsuarioServicio implements UserDetailsService {
         if (!password.equals(password2)) {
             throw new ErrorServicio("Las claves deben ser iguales");
         }
+        if(!validarUsername(username)){
+            throw new ErrorServicio("El nombre de usuario no puede tener espacios en blanco");
+        }
     }
-
+    private Boolean validarUsername(String username){
+        int espacios = 0;
+        for(int i=0; i<username.length(); i++){
+            if (username.charAt(i) == ' ') espacios++;
+        }
+        return espacios==0;
+    }
 }
