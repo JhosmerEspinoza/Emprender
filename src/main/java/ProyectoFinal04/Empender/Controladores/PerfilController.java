@@ -26,7 +26,28 @@ public class PerfilController {
     @Autowired
     private EmprendedorServicio servicioEmprendedor;
     
-    @PostMapping("/actualizar-perfil")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    @PostMapping("/actualizarPerfil")
     public String actualizar_perfil(ModelMap model, HttpSession session, Emprendedor emprendedor){
         Usuario user = null;
         try{
@@ -38,7 +59,7 @@ public class PerfilController {
         }catch(Exception ex){
             model.put("error", ex.getMessage());
             model.put("perfil", user);
-            return "redirect:/modificar-perfil";
+            return "redirect:/actualizarPerfil";
         }
     }
     
