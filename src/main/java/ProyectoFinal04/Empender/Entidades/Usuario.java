@@ -32,6 +32,7 @@ public class Usuario implements Serializable {
     private String nombre;
     private String nombreUsuario;
     private String password;
+    private String mail;
     @OneToOne
     private Foto fotoPerfil;
     @Enumerated(EnumType.STRING)
@@ -87,6 +88,14 @@ public class Usuario implements Serializable {
 
     public void setRol(Roles rol) {
         this.rol = rol;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 
 }

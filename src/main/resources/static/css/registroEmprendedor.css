@@ -55,7 +55,7 @@ body {
     margin-bottom: 1rem;
 }
 
-.login-box input[type="text"], .login-box input[type="password"] {
+.login-box input[type="text"], .login-box input[type="password"],.login-box input[type="email"] {
     border: none;
     border-bottom: 1px solid #2196F3;
     background: transparent;
@@ -90,4 +90,19 @@ body {
     display: flex;
 }
 
+.contenedor{
+    display: flex;
+}
+
+.emprendedor-contenedor{
+    width: 50%;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
+
+.cliente-contenedor{
+    width: 50%;
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+}
 

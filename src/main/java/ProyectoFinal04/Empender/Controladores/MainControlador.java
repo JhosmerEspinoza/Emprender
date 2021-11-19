@@ -5,6 +5,7 @@
  */
 package ProyectoFinal04.Empender.Controladores;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,33 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class MainControlador {
     
-    @GetMapping("editarPerfil")
-    public String editProfile(){
-        return "EditarPerfil";
-    }
-    @GetMapping("inicio")
-    public String inicio(){
-        return "inicio";
-    }
-    @GetMapping("feed")
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
+    @GetMapping("emprender_principal")
     public String feed(){
-        return "feed";
+        return "emprender_principal";
     }
-    @GetMapping("registroImagen")
-    public String registroimg(){
-        return "registroImagen";
+    
+    @GetMapping("actualizarPerfil")
+    public String editarPerfil(){
+        return "actualizarPerfil";
     }
-    @GetMapping("sIndex")
-    public String index2(){
-        return "sIndex";
-    }
-    @GetMapping("navbar")
-    public String nav(){
-        return "navbar";
-    }
-    @GetMapping("profile")
-    public String perfil(){
-        return "profile";
-    }
+    
    
 }
