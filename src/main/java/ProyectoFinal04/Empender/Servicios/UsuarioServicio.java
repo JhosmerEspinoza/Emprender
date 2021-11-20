@@ -28,10 +28,7 @@ import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- *
- * @author jhosenny
- */
+
 @Service
 public class UsuarioServicio implements UserDetailsService {
 
