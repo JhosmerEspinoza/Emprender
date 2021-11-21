@@ -27,7 +27,7 @@ public class FotoServicio {
 
     @Transactional
     public Foto guardarfoto(MultipartFile archivo) throws ErrorServicio {
-        if (archivo != null) {
+        if (archivo != null && !archivo.isEmpty()) {
             try {
                 Foto foto = new Foto();
                 foto.setMime(archivo.getContentType());

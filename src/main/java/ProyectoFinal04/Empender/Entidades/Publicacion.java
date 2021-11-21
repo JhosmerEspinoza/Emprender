@@ -5,12 +5,15 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
 import java.io.Serializable;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
 /**
@@ -24,41 +27,55 @@ public class Publicacion implements Serializable{
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid", strategy="uuid2")
     private String id;
-    private String descripccion;
-    private File foto;
-    private String comentario;
+    
+    private String descripcion;
+    private Boolean alta;
+    @OneToOne
+    private Foto publicacionIMG;
     @ManyToOne
     private Emprendedor emprendedor;
+
     
+    private String fecha;
 
     public Publicacion() {
+
+
     }
 
+    public Foto getPublicacionIMG() {
+        return publicacionIMG;
+    }
 
+    public void setPublicacionIMG(Foto publicacionIMG) {
+        this.publicacionIMG = publicacionIMG;
+    }
+    
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+    public Boolean getAlta() {
+        return alta;
+    }
+
+    public void setAlta(Boolean alta) {
+        this.alta = alta;
+    }
+    
     public String getDescripccion() {
-        return descripccion;
+        return descripcion;
     }
 
     public void setDescripccion(String descripccion) {
-        this.descripccion = descripccion;
+        this.descripcion = descripccion;
     }
-
-    public File getFoto() {
-        return foto;
-    }
-
-    public void setFoto(File foto) {
-        this.foto = foto;
-    }
-
-    public String getComentario() {
-        return comentario;
-    }
-
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
-    }
-
     public String getId() {
         return id;
     }
@@ -66,6 +83,24 @@ public class Publicacion implements Serializable{
     public void setId(String id) {
         this.id = id;
     }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+
+    public Emprendedor getEmprendedor() {
+        return emprendedor;
+    }
+
+    public void setEmprendedor(Emprendedor emprendedor) {
+        this.emprendedor = emprendedor;
+    }
+
 
     
     

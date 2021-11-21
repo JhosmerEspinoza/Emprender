@@ -31,4 +31,10 @@ public class LoginController {
         return "home";
     }
     
+    /*
+    @GetMapping("/verificarCuenta")
+    public String verificar(@RequestParam String idUser){
+        
+    }*/
+    
 }

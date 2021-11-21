@@ -33,6 +33,8 @@ public class Usuario implements Serializable {
     private String nombreUsuario;
     private String password;
     private String mail;
+    private String codigoVerificacion;
+    private boolean verificado;
     @OneToOne
     private Foto fotoPerfil;
     @Enumerated(EnumType.STRING)
@@ -48,6 +50,14 @@ public class Usuario implements Serializable {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public boolean isVerificado() {
+        return verificado;
+    }
+
+    public void setVerificado(boolean verificado) {
+        this.verificado = verificado;
     }
 
     public String getNombre() {
@@ -98,4 +108,13 @@ public class Usuario implements Serializable {
         this.mail = mail;
     }
 
+    public String getCodigoVerificacion() {
+        return codigoVerificacion;
+    }
+
+    public void setCodigoVerificacion(String codigoVerificacion) {
+        this.codigoVerificacion = codigoVerificacion;
+    }
+    
+    
 }
