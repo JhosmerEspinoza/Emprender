@@ -24,27 +24,31 @@
                             </a>
                         </div>
                         <h1>Registrarse como Emprendedor</h1>
-                        
-                        <form th:action="@{/save}" method="post" th:object="${emprendedor}">
+                        <div th:if="${error}" role="alert" class="alert alert-danger alert-dismissible fade show mt-3">
+                            <span th:text="${error}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                        <form th:action="@{/save}" method="POST">
                             <label for="nombre">Nombre y apellido</label>
-                            <input type="text" placeholder="Ingrese su nombre completo" th:field="*{nombre}" autocomplete="off" required name="name">
+                            <input type="text" placeholder="Ingrese su nombre completo" th:value="*{nombre}" name="nombre" autocomplete="off">
                             <label for="mail">Mail</label>
-                            <input type="text" placeholder="Ingrese su mail de contacto" th:field="*{mail}" required name="mail" autocomplete="off">
+                            <input type="mail" placeholder="example@gmail.com" th:value="*{mail}" name="mail" autocomplete="off">
                             <label for="telefono">Telefono</label>
-                            <input type="text" placeholder="Ingrese su numero de telefono" th:field="*{telefono}" required name="telefono" autocomplete="off">                            
-                            <label for="direccion">Direccion</label>
-                            <input type="text" placeholder="Ingrese su direccion" th:field="*{direccion}" required name="direccion" autocomplete="off">
+                            <input type="text" placeholder="+54 3647 521177" th:value="*{telefono}" name="telefono" autocomplete="off">                            
+                            <label for="direccion">Ubicacion</label>
+                            <input type="text" placeholder="Rosario, Santa Fe, Argentina" th:value="*{direccion}" name="direccion" autocomplete="off">
                             <!-- USERNAME INPUT -->
-                            <label for="nombreUsuario">Nombre de usuario</label>
-                            <input type="text" placeholder="Ingrese su usuario" th:field="*{nombreUsuario}" required name="nombreUsuario" autocomplete="off">
+                            <label for="nombreUsuario">Nombre del emprendimiento</label>
+                            <input type="text" placeholder="Emprender" th:value="*{username}" name="username" autocomplete="off">
                             <!-- PASSWORD INPUT -->
                             <label for="password">Contraseña</label>
-                            <input type="password" placeholder="Ingrese su Contraseña" th:field="*{password}" required name="password">
+                            <input type="password" placeholder="Ingrese su Contraseña" th:value="*{clave1}" name="clave1">
+                            <label for="password">Contraseña</label>
+                            <input type="password" placeholder="Repita su Contraseña" th:value="*{clave2}" name="clave2">
                             <div class="boton-container">
-                                <input class="boton" type="reset" value="Borrar">
                                 <input class="boton" type="submit" value="Aceptar">
                             </div>
-                            <button id="cliente" class="boton"><a href="registroCliente.html">Soy cliente</a></button>
+                            <button id="cliente" class="boton"><a th:href="@{registroCliente}"><label for="cliente">Soy cliente</label></a></button>
                         </form>
                     </div>                        
                 </div>

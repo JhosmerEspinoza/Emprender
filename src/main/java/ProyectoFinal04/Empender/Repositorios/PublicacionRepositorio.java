@@ -9,7 +9,11 @@ import ProyectoFinal04.Empender.Entidades.Publicacion;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+/**
+ *
+ * @author Moriconi
+ */
 @Repository
-public interface PublicacionRepositorio extends JpaRepository<Publicacion, String> {
+public interface PublicacionRepositorio extends JpaRepository<Publicacion, String>{
     
 }

@@ -17,15 +17,24 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Moriconi
  */
 @Controller
-@RequestMapping("/home")
+@RequestMapping("/")
 public class LoginController {
     
-    @GetMapping("")
-    public String login(Model model, @RequestParam(required=false) String error){
+    @GetMapping("/home")
+    public String login(Model model, @RequestParam(required=false) String error, @RequestParam(required=false) String logout){
         if(error != null){
             model.addAttribute("error", "Nombre de usuario o contraseña incorrecto");
         }
+        if(logout != null){
+            model.addAttribute("logout", "Has cerrado sesion correctamente");
+        }
         return "home";
     }
+    
+    /*
+    @GetMapping("/verificarCuenta")
+    public String verificar(@RequestParam String idUser){
+        
+    }*/
     
 }

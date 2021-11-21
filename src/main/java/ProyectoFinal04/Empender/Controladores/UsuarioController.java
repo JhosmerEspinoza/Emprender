@@ -28,10 +28,11 @@ public class UsuarioController {
     public String index(){
         return "index";
     }
-    
+    /*
     @PostMapping("/save")
     public String registroUsuario(@ModelAttribute Usuario user) throws Exception{
         servicioUsuario.save(user);
         return "redirect:/index";
     }
+    */
 }

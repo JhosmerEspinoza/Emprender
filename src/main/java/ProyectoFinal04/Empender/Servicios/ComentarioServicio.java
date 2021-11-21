@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ProyectoFinal04.Empender.Servicios;
 
 import ProyectoFinal04.Empender.Entidades.Comentario;
@@ -14,6 +10,8 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+/*
+>>>>>>> a10b5829a2417d64746c7c7676e2dab17538bd4d
 @Service
 public class ComentarioServicio {
 
@@ -57,4 +55,7 @@ public class ComentarioServicio {
             //throw new ErrorServicio("El autor ingresado no se encuentra");
         }
     }
+<<<<<<< HEAD
 }
+=======
+}*/

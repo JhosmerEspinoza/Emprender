@@ -40,13 +40,13 @@ public class Security extends WebSecurityConfigurerAdapter {
     //Configuracion peticiones HTTP
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.authorizeRequests().antMatchers("/*").permitAll()
+        http.authorizeRequests().antMatchers("/css/*","/icon/*", "/img/*").permitAll()
                 .and().formLogin()
                     .loginPage("/home")
-                    .usernameParameter("nombreUsuario")
-                    .passwordParameter("password")
-                    .defaultSuccessUrl("/")
                     .loginProcessingUrl("/logincheck")
+                    .usernameParameter("username")
+                    .passwordParameter("password")
+                    .defaultSuccessUrl("/emprender_principal") 
                     .failureUrl("/home?error=error")
                     .permitAll()
                 .and().logout()

@@ -5,9 +5,20 @@
  */
 package ProyectoFinal04.Empender.Controladores;
 
+import ProyectoFinal04.Empender.Entidades.Emprendedor;
+import ProyectoFinal04.Empender.Entidades.Publicacion;
+import ProyectoFinal04.Empender.Excepciones.ErrorServicio;
+import ProyectoFinal04.Empender.Servicios.PublicacionServicio;
+import javax.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -16,34 +27,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class MainControlador {
-    
-    @GetMapping("editarPerfil")
-    public String editProfile(){
-        return "EditarPerfil";
+
+    @Autowired
+    private PublicacionServicio servicioPublicacion;
+
+    @PreAuthorize("hasAnyRole('ROLE_USUARIO_REGISTRADO')")
+    @GetMapping("emprender_principal")
+    public String feed(HttpSession session, @RequestParam(required = false) String idUser, Model model) {
+        Publicacion publi = new Publicacion();
+        model.addAttribute("publicacion", publi);
+        
+        
+        model.addAttribute("publicaciones", servicioPublicacion.listAll());
+        return "emprender_principal";
     }
-    @GetMapping("inicio")
-    public String inicio(){
-        return "inicio";
+
+    @PreAuthorize("hasAnyRole('ROLE_EMPRENDEDORs')")
+    @PostMapping("/nueva")
+    public String crearP(Model model, HttpSession session, MultipartFile img, String descripcion) {
+
+        Emprendedor emprendedor = (Emprendedor) session.getAttribute("usuariosession");
+        try {
+            servicioPublicacion.crearPublicacion(emprendedor.getId(), descripcion, img);
+
+        } catch (ErrorServicio err) {
+            System.out.println(err.getMessage());
+            model.addAttribute("error", err.getMessage());
+        }
+        return "redirect:/emprender_principal";
+
     }
-    @GetMapping("feed")
-    public String feed(){
-        return "feed";
-    }
-    @GetMapping("registroImagen")
-    public String registroimg(){
-        return "registroImagen";
-    }
-    @GetMapping("sIndex")
-    public String index2(){
-        return "sIndex";
-    }
-    @GetMapping("navbar")
-    public String nav(){
-        return "navbar";
-    }
-    @GetMapping("profile")
-    public String perfil(){
-        return "profile";
-    }
-   
+
 }
