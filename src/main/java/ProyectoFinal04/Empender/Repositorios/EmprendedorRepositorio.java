@@ -14,5 +14,6 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface EmprendedorRepositorio extends JpaRepository<Emprendedor, String> {
+
     
 }
