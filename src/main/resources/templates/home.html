@@ -14,9 +14,12 @@ and open the template in the editor.
         <link rel="icon" type="icon" href="img/E.png">
         <link rel="stylesheet" href="/css/master.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Comforter&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">   
     </head>
+
     <style>
         h1, h2, h3, h4, h5, h6, p {
             font-family: "Verdana";
@@ -27,9 +30,11 @@ and open the template in the editor.
     <body>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <div class="d-inline-block">
-                    <img src="img/E2.png" alt="" width="32" height="32" class="d-inline-block">
-                    <a class="navbar-brand" th:href="@{home}">mprender</a>                    
+                <div class="d-flex align-items-center">
+                    <div>
+                        <img src="img/E2.png" alt="" width="32" height="32" class="d-inline-block">
+                    </div>
+                    <a class="navbar-brand" th:href="@{/home}" style="letter-spacing: 1px;">mprender</a>
                 </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -65,7 +70,9 @@ and open the template in the editor.
 
             <!-- About Section -->
             <div class="w3-row w3-padding-64" id="about">
-                <div class="w3-col m6 w3-padding-large">
+
+
+                <div class="w3-col m6 w3-padding-large sesion">
                     <div class="login-container">
                         <div class="login-box">
                             <div class="avatar-container">
@@ -84,7 +91,7 @@ and open the template in the editor.
                             </div>
                             <form th:action="@{/logincheck}" method="POST">
                                 <!-- USERNAME INPUT -->
-                                <label for="nombreUsuario">Mail</label>
+                                <label for="nombreUsuario">Usuario</label>
                                 <input type="text" placeholder="Ingrese su nombre de usuario" name="username" autocomplete="off">
                                 <!-- PASSWORD INPUT -->
                                 <label for="password">Contraseña</label>
@@ -96,11 +103,14 @@ and open the template in the editor.
                     </div>
                 </div>
 
-                <div class="w3-col m6 w3-padding-large w3-hide-small empresa">
-                    <h1 class="w3-center">Sobre Emprender</h1><br>
-                    <p class="w3-large">Create una cuenta y haz que tu emprendimiento crezca, publica tus productos y hace que llegue a una mayor cantidad de personas.</p>
-                    <p class="w3-large">Si no tenes un emprendimiento, registrate y mira lo que suben los emprendedores, podes encontrar los productos que estas buscando.</p>
+                <div class="w3-col m6 w3-padding-large empresa">
+                    <div>
+                        <h1 class="w3-center">Sobre Emprender</h1><br>
+                        <p class="w3-large">Create una cuenta y haz que tu emprendimiento crezca, publica tus productos y hace que llegue a una mayor cantidad de personas.</p>
+                        <p class="w3-large">Si no tenes un emprendimiento, registrate y mira lo que suben los emprendedores, podes encontrar los productos que estas buscando.</p>
+                    </div>      
                 </div>
+
             </div>
 
         </div>

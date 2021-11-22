@@ -48,7 +48,9 @@
                             <div class="boton-container">
                                 <input class="boton" type="submit" value="Aceptar">
                             </div>
-                            <button id="cliente" class="boton"><a th:href="@{registroCliente}">Soy cliente</a></button>
+                        </form>
+                        <form th:action="@{registroCliente}" method="GET">
+                            <input class="boton" type="submit" value="Soy Cliente">
                         </form>
                     </div>                        
                 </div>
