@@ -5,7 +5,6 @@
  */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -29,19 +28,20 @@ public class Publicacion implements Serializable{
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid", strategy="uuid2")
     private String id;
+
     
-    private String descripccion;
+    private String descripcion;
     private Boolean alta;
     @OneToOne
     private Foto publicacionIMG;
-    @OneToMany
-    private List<Comentario> comentarios;
+    @ManyToOne
+    private Emprendedor emprendedor;
+
+    
     private String fecha;
 
     public Publicacion() {
-        alta = true;
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        fecha = dtf.format(LocalDateTime.now());
+
 
     }
 
@@ -72,11 +72,11 @@ public class Publicacion implements Serializable{
     }
     
     public String getDescripccion() {
-        return descripccion;
+        return descripcion;
     }
 
     public void setDescripccion(String descripccion) {
-        this.descripccion = descripccion;
+        this.descripcion = descripccion;
     }
     public String getId() {
         return id;
@@ -86,13 +86,22 @@ public class Publicacion implements Serializable{
         this.id = id;
     }
 
-    public List<Comentario> getComentarios() {
-        return comentarios;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void agregarComentario(Comentario comentario) {
-        comentario.setPublicacion(this);
-        this.comentarios.add(comentario);
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
+
+
+    public Emprendedor getEmprendedor() {
+        return emprendedor;
+    }
+
+    public void setEmprendedor(Emprendedor emprendedor) {
+        this.emprendedor = emprendedor;
+    }
+
     
 }

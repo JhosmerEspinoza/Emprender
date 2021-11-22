@@ -57,19 +57,19 @@ public class UsuarioServicio implements UserDetailsService {
         //Seteo imagen
         Foto foto = servicioFoto.guardarfoto(fotoPerfil);
         user.setFotoPerfil(foto);
+    }
         //
-
-        
         /* MAIL DE CONFIRMACION
+        repositorioUsuario.save(user);
         String codigoVerificacion =  user.getId().substring(0,5)+String.valueOf((int) (Math.random()*1000) );
         user.setCodigoVerificacion(codigoVerificacion);
         
         String mensaje =  "Bienvenidx a emprender, ingrese al siguiente link para verificar su cuenta: ";
-        String link = "localhost:8080/verificarCuenta?idUser="+user.getId()+"&verificacion="+user.getCodigoVerifiacion();
-        servicioNotificacion.enviarMailRegistro(mensaje, "Emprender", user.getMail(), link);
-        */
+        String link = "localhost:8080/verificarCuenta?idUser="+user.getId()+"&verificacion="+user.getCodigoVerificacion();
         
-        repositorioUsuario.save(user);
+        
+        servicioNotificacion.enviarMailRegistro(mensaje, "Emprender", user.getMail(), link);
+        
         
 
     }

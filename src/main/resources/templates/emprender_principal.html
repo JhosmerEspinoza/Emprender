@@ -40,7 +40,7 @@
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" sec:authorize="hasRole('ROLE_EMPRENDEDOR')">
                                     <li ><a class="dropdown-item">Ir a mi perfil</a></li>
-                                    <li><a class="dropdown-item" th:href="@{/emprendedor/actualizarPerfil}">Editar Perfil</a></li>
+                                    <li><a class="dropdown-item" th:href="@{/emprendedor/actualizarPerfil(id=__${session.usuariosession.id}__)}">Editar Perfil</a></li>
                                 </ul>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" sec:authorize="hasRole('ROLE_CLIENTE')">
                                     <li><a class="dropdown-item" th:href="@{/cliente/actualizarPerfil(id=__${session.usuariosession.id}__)}">Editar Perfil</a></li>
@@ -129,21 +129,27 @@
                     </div>
                 </aside>
                 <main class="main">
+                    <!-- -----------------------BACK PUBLI------------------------------------------- -->
                     <div class="publicaciones">
-                        <div class="publicar">
-                            <form action="" method="post">
-                                <input class="publicar__titulo" type="text" placeholder="Titulo de la publicacion">
+                        <div th:if="${error}" role="alert" class="alert alert-danger alert-dismissible fade show mt-3">
+                            <span th:text="${error}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                        <div class="publicar" sec:authorize="hasRole('ROLE_EMPRENDEDOR')">
+                            <form th:action="@{/nueva}" method="POST" enctype="multipart/form-data">
+
                                 <textarea name="descripcion" id="publicar__descripcion"
-                                          placeholder="Agregue una descripción"></textarea>
+                                          placeholder="Agregue una descripcion.."></textarea>
                                 <div id="p"></div>
                                 <div class="publicar__adjuntarImagen">
                                     <button type="submit" id="publicar__boton"><label for="publicar__boton"><img
                                                 src="/img/megafono.png" alt=""> Publicar</label></button>
-                                    <label for="file"><img src="/img/paisaje.png" alt=""> Seleccione su imagen</label>
-                                    <input type="file" accept="image/*" id="file">
+                                    <label for="file"><img src="/img/paisaje.png" alt=""> Seleccione una imagen</label>
+                                    <input type="file" accept="image/*" name="img" id="file">
                                 </div>
                             </form>
                         </div>
+                        
                         <article class="publicacion">
                             <div class="publicacion__encabezado">
                                 <div class="publicacion__foto-usuario">

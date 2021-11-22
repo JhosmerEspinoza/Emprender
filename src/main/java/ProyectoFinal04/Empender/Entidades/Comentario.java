@@ -1,43 +1,41 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ProyectoFinal04.Empender.Entidades;
 
-import java.io.File;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.Temporal;
+
+import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
-import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 public class Comentario implements Serializable {
+
+
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "uuid2")
     private String id;
-    
+
+
     private String texto;
-    @ManyToOne
-    private Publicacion publicacion;
     private String fecha;
     private Boolean alta;
- 
+    @ManyToOne
+    private Usuario usuario;
+    @ManyToOne
+    private Publicacion publicacion;
+
     public Comentario() {
-        alta = true;
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         fecha = dtf.format(LocalDateTime.now());
     }
 
-    
+
     public String getFecha() {
         return fecha;
     }
@@ -53,6 +51,14 @@ public class Comentario implements Serializable {
 
     public void setPublicacion(Publicacion publicacion) {
         this.publicacion = publicacion;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getId() {
@@ -78,5 +84,7 @@ public class Comentario implements Serializable {
     public void setAlta(Boolean alta) {
         this.alta = alta;
     }
-    
+
+
+
 }

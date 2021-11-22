@@ -59,7 +59,7 @@ public class EmprendedorServicio {
         user.setFotoPerfil(foto);
         //
         repositorioUsuario.save(user);
-        //servicioNotificacion.enviarMail("Bienvenidx a emprender", "Emprender", user.getMail());
+        servicioNotif.enviarMail("Bienvenidx a emprender", "Emprender", user.getMail());
     }
 
     @Transactional
@@ -147,28 +147,12 @@ public class EmprendedorServicio {
     public Optional<Emprendedor> findById(String id) {
         return repositorioEmprendedor.findById(id);
     }
-        
+
+    public Emprendedor buscarPorId(String id) {
+        return repositorioEmprendedor.buscarPorId(id);
+    }
+
     public Usuario findByNombreUsuario(String nombreUsuario) {
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
-
-    /*
-    @Transactional
-    public Emprendedor save(Emprendedor usuario) throws Exception {
-        if (findByNombreUsuario(usuario.getNombreUsuario()) != null) {
-            throw new Exception("El nombre de usuario ya existe");
-        }
-        //Encriptamiento de password
-        BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
-        String password = usuario.getPassword();
-        usuario.setPassword(encoder.encode(password));
-        //Seteo de rol
-        usuario.setRol(Roles.EMPRENDEDOR);
-        
-        servicioNotif.enviarMail("Bienvenidos a emprender", "Emprender", usuario.getMail());
-        return repositorioEmprendedor.save(usuario);
-        
-    }
-
-     */
 }

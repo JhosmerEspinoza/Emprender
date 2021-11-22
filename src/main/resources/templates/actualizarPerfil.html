@@ -17,6 +17,7 @@
             <div class="cliente-contenedor" sec:authorize="hasRole('ROLE_CLIENTE')">
                 <div class="login-container">
                     <div class="login-box">
+
                         <div class="avatar-container">
                             <a th:href="@{/home}">
                                 <img src="/img/E2.png" class="avatar" alt="Avatar Image">                                   
@@ -37,6 +38,7 @@
                             <!-- MAIL INPUT -->
                             <label for="mail">Mail</label>
                             <input type="email" placeholder="example@gmail.com" name="mail" th:value="${usuario.mail}">
+
                             <!-- PASSWORD INPUT -->
                             <label for="password">Contraseña</label>
                             <input type="password" placeholder="Ingrese su nueva Contraseña" name="clave1" th:value="${clave1}">
@@ -76,15 +78,15 @@
                             <input type="text" placeholder="Emprender" th:value="*{username}" name="username" autocomplete="off">
                             <!-- PASSWORD INPUT -->
                             <label for="password">Contraseña</label>
-                            <input type="password" placeholder="Ingrese su Contraseña" th:value="*{clave1}" name="clave1">
+                            <input type="password" placeholder="Ingrese su nueva Contraseña" name="clave1" th:value="${clave1}">
                             <label for="password">Contraseña</label>
-                            <input type="password" placeholder="Repita su Contraseña" th:value="*{clave2}" name="clave2">
+                            <input type="password" placeholder="Repita su nueva Contraseña" name="clave2" th:value="${clave2}">
                             <div class="boton-container">
                                 <input class="boton" type="submit" value="Guardar cambios">
                                 <button id="cliente" class="boton"><a th:href="@{/emprender_principal}">Volver</a></button>
                             </div>
                         </form>
-                    </div> 
+                    </div>   
                 </div>
             </div>
         </div>
