@@ -30,25 +30,27 @@
                         </div>
                         <form th:action="@{/save}" method="POST">
                             <label for="nombre">Nombre y apellido</label>
-                            <input type="text" placeholder="Ingrese su nombre completo" th:value="*{nombre}" name="nombre" autocomplete="off">
+                            <input type="text" placeholder="Ingrese su nombre completo" th:value="${nombre}" name="nombre" autocomplete="off">
                             <label for="mail">Mail</label>
-                            <input type="mail" placeholder="example@gmail.com" th:value="*{mail}" name="mail" autocomplete="off">
+                            <input type="email" placeholder="example@gmail.com" th:value="${mail}" name="mail" autocomplete="off">
                             <label for="telefono">Telefono</label>
-                            <input type="text" placeholder="+54 3647 521177" th:value="*{telefono}" name="telefono" autocomplete="off">                            
+                            <input type="text" placeholder="+54 3647 521177" th:value="${telefono}" name="telefono" autocomplete="off">                            
                             <label for="direccion">Ubicacion</label>
-                            <input type="text" placeholder="Rosario, Santa Fe, Argentina" th:value="*{direccion}" name="direccion" autocomplete="off">
+                            <input type="text" placeholder="Rosario, Santa Fe, Argentina" th:value="${direccion}" name="direccion" autocomplete="off">
                             <!-- USERNAME INPUT -->
                             <label for="nombreUsuario">Nombre del emprendimiento</label>
-                            <input type="text" placeholder="Emprender" th:value="*{username}" name="username" autocomplete="off">
+                            <input type="text" placeholder="Emprender" th:value="${username}" name="username" autocomplete="off">
                             <!-- PASSWORD INPUT -->
                             <label for="password">Contraseña</label>
-                            <input type="password" placeholder="Ingrese su Contraseña" th:value="*{clave1}" name="clave1">
+                            <input type="password" placeholder="Ingrese su Contraseña" th:value="${clave1}" name="clave1">
                             <label for="password">Contraseña</label>
-                            <input type="password" placeholder="Repita su Contraseña" th:value="*{clave2}" name="clave2">
+                            <input type="password" placeholder="Repita su Contraseña" th:value="${clave2}" name="clave2">
                             <div class="boton-container">
                                 <input class="boton" type="submit" value="Aceptar">
                             </div>
-                            <button id="cliente" class="boton"><a th:href="@{registroCliente}"><label for="cliente">Soy cliente</label></a></button>
+                        </form>
+                        <form th:action="@{registroCliente}" method="GET">
+                            <input class="boton" type="submit" value="Soy Cliente">
                         </form>
                     </div>                        
                 </div>

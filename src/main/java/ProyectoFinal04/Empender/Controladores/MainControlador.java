@@ -44,11 +44,11 @@ public class MainControlador {
 
     @PreAuthorize("hasAnyRole('ROLE_EMPRENDEDORs')")
     @PostMapping("/nueva")
-    public String crearP(Model model, HttpSession session, MultipartFile img, String descripcion) {
+    public String crearP(Model model, HttpSession session, MultipartFile img, String descripcion, String titulo) {
 
         Emprendedor emprendedor = (Emprendedor) session.getAttribute("usuariosession");
         try {
-            servicioPublicacion.crearPublicacion(emprendedor.getId(), descripcion, img);
+            servicioPublicacion.crearPublicacion(emprendedor.getId(), descripcion, img, titulo);
 
         } catch (ErrorServicio err) {
             System.out.println(err.getMessage());

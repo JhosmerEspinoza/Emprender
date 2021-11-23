@@ -8,7 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -27,8 +26,7 @@ public class Comentario implements Serializable {
     private Publicacion publicacion;
 
     public Comentario() {
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-        fecha = dtf.format(LocalDateTime.now());
+        alta = true;
     }
 
     public String getFecha() {

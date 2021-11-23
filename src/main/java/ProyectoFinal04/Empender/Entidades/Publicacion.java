@@ -12,7 +12,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -27,6 +26,7 @@ public class Publicacion implements Serializable{
     @GeneratedValue(generator="uuid")
     @GenericGenerator(name="uuid", strategy="uuid2")
     private String id;
+    private String titulo;
     private String descripcion;
     private Boolean alta;
     @OneToOne
@@ -38,9 +38,19 @@ public class Publicacion implements Serializable{
     private String fecha;
 
     public Publicacion() {
-
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        fecha = dtf.format(LocalDateTime.now());
+        alta = true;
     }
 
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+    
     public Foto getPublicacionIMG() {
         return publicacionIMG;
     }
