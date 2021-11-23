@@ -22,6 +22,7 @@ import org.hibernate.annotations.GenericGenerator;
  * @author jhosenny
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Usuario implements Serializable {
 
     @Id
