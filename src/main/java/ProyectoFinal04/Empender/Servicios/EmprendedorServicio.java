@@ -63,11 +63,43 @@ public class EmprendedorServicio {
     }
 
     @Transactional
-    public void modificar(String id, String nombre, String username, String mail, String telefono, String direccion, String password, String password2) throws ErrorServicio {
-        validar(nombre, username, mail, telefono, direccion, password, password2);
-        if (findByNombreUsuario(username) != null) {
-            throw new ErrorServicio("El nombre de usuario ya existe");
+    public void modificarFoto(MultipartFile archivo, String idUsuario) throws ErrorServicio {
+        Optional<Emprendedor> rta = findById(idUsuario);
+        if (rta.isPresent()) {
+            Emprendedor emprendedor = rta.get();
+
+            String idFoto = null;
+            if (emprendedor.getFotoPerfil() != null) {
+                idFoto = emprendedor.getFotoPerfil().getId();
+
+                Foto foto = new Foto();
+                foto = servicioFoto.modificarFoto(idFoto, archivo);
+                emprendedor.setFotoPerfil(foto);
+                repositorioEmprendedor.save(emprendedor);
+
+            } else {
+                Foto fotoP = new Foto();
+                fotoP = servicioFoto.guardarfoto(archivo);
+                emprendedor.setFotoPerfil(fotoP);
+                repositorioEmprendedor.save(emprendedor);
+            }
+
+        } else {
+            throw new ErrorServicio("Usuario no encontrado");
         }
+
+    }
+
+    @Transactional
+    public void modificar(MultipartFile archivo, String id, String nombre, String username, String mail, String telefono, String direccion, String password, String password2) throws ErrorServicio {
+        validar(nombre, username, mail, telefono, direccion, password, password2);
+                
+        if(archivo==null || archivo.isEmpty()){
+            throw new ErrorServicio("Ingrese una foto");
+        }
+        /*if (findByNombreUsuario(username) != null) {
+            throw new ErrorServicio("El nombre de usuario ya existe");
+        }*/
 
         Optional<Emprendedor> rta = repositorioEmprendedor.findById(id);
         if (rta.isPresent()) {
@@ -77,6 +109,8 @@ public class EmprendedorServicio {
             user.setMail(mail);
             user.setTelefono(telefono);
             user.setDireccion(direccion);
+            Foto foto = servicioFoto.modificarFoto(id, archivo);
+            user.setFotoPerfil(foto);
             String passEncriptado = new BCryptPasswordEncoder().encode(password);
             user.setPassword(passEncriptado);
             repositorioEmprendedor.save(user);
@@ -108,6 +142,7 @@ public class EmprendedorServicio {
         if (direccion == null || direccion.isEmpty()) {
             throw new ErrorServicio("La direccion no puede ser vacia");
         }
+
     }
 
     @Transactional

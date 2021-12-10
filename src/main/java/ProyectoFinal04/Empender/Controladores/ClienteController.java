@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -52,7 +53,7 @@ public class ClienteController {
 
     
     @PostMapping("/actualizar")
-    public String actualizar(Model model, HttpSession session, @RequestParam String id, @RequestParam String nombre, @RequestParam String username, @RequestParam String mail, @RequestParam String clave1, @RequestParam String clave2) throws ErrorServicio {
+    public String actualizar(Model model, HttpSession session, MultipartFile archivo ,@RequestParam String id, @RequestParam String nombre, @RequestParam String username, @RequestParam String mail, @RequestParam String clave1, @RequestParam String clave2) throws ErrorServicio {
         Usuario user = null;
         try {
             Usuario login = (Usuario) session.getAttribute("usuariosession");
@@ -61,7 +62,7 @@ public class ClienteController {
             }
             
             user = servicioUsuario.buscarPorId(id);
-            servicioUsuario.modificar(id, nombre, username, mail, clave1, clave2);
+            servicioUsuario.modificar(archivo, id, nombre, username, mail, clave1, clave2);
             session.setAttribute("usuariosession", user);
             return "redirect:/emprender_principal";
 

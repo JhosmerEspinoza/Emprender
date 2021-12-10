@@ -1,0 +1,435 @@
+/*Modifico los valores iniciales de algunas propiedades*/
+*{
+    margin: 0;
+    padding: 0;
+}
+/*Rooteo como una variable el color principal de la web*/
+:root{
+    --color: #2196F3;
+}
+/*Centro la pagina para que tenga margenes a los costados*/
+/* .container{
+    width: 90%;
+    margin: auto;
+} */
+/*NAVBAR - dejandolo fijo*/
+.navbar{
+    position: sticky!important;
+    top: 0;
+    z-index: 1;
+}
+/*Divido el contenido el dos secciones,el aside y el main*/
+.content{
+    width: 95%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+/* Estilos del aside,seccion donde esta el perfil y las etiquetas*/
+.aside{
+    width: 25%;
+}
+.perfil-card{
+    position: sticky;
+    top: 4.5rem;
+}
+/*Aside - seccion de perfil*/
+.perfil-card, .intereses{
+    transition: box-shadow 0.4s ease;
+    background-color: white;
+    margin: 0.5rem 0;
+    border-radius: 0.5rem;
+    padding: 0.2rem 0;
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+}
+.perfil-card:hover{
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+}
+.perfil-card__miPerfil{
+    margin-top: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: #2196F3;
+}
+.perfil-card h2{
+    text-align: center;
+    color: white;
+}
+
+.perfil-card p{
+    text-align: center;
+}
+
+.perfil-card__foto{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.foto-perfil, .perfil-card__foto img{
+    width: 50%;
+    border-radius: 50%;
+    border: 3px solid white;
+}
+/*Cambiar foto de perfil*/
+.cambiar-foto-perfil{
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.cambiar-foto-perfil .boton{
+    outline: none;
+    margin: 0 0 0 auto;
+    background-color: transparent;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+
+.cambiar-foto-perfil .boton:hover{
+    cursor: pointer;
+}
+/*Datos del perfil*/
+.datos{
+    display: flex;
+    justify-content: left;
+    padding-top: 0.5rem;
+}
+
+ul{
+    list-style-type: none;
+}
+
+.datos li{
+    margin: 0.5rem;
+}
+.datos img{
+    width: 1.5rem;
+    object-fit: cover;
+}
+
+.datos p{
+    display: inline;
+    margin-left: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+/*Intereses del usuario*/
+.intereses{
+    margin-top: 1.5rem;
+    padding: 1rem;
+    padding-bottom: 0.5rem;
+}
+.etiquetas p{
+    padding: 0.1rem 0.4rem;
+    display: inline;
+    width: min-content;
+    color: white;
+    background-color: #2196F3;
+}
+
+.intereses__buscador{
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid slategrey;
+    display: flex;
+    justify-content: center;
+}
+.intereses__buscador img{
+    width: 2.5rem;
+}
+/*Seccion de publicaciones*/
+.main{
+    width: 70%;
+}
+
+.main img{
+    width: 100%;
+}
+.publicar{
+    transition: box-shadow 0.4s ease;
+    background-color: white;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+}
+/*Crear publicacion*/
+.publicar{
+    padding: 1rem;
+}
+.publicar__titulo{
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid #2196F3;
+    border-radius: 3px;
+    color: #2196F3;
+}
+#publicar__descripcion{
+    font-size: 1.1rem;
+    padding: 0.5rem 1rem;
+    resize: none;
+    width: 100%;
+    height: 100px;
+    border: 2px solid #2196F3;
+    border-radius: 3px;
+    color: #2196F3;
+}
+.publicar__titulo::placeholder, #publicar__descripcion::placeholder{
+    color: #2196F3;
+}
+.publicar__titulo:focus, #publicar__descripcion:focus{
+    outline: none;
+}
+
+input[type="file"]{
+    display: none;
+}
+#preview, #p{
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0.1rem 0.5rem #2196F3;
+}
+.publicar__adjuntarImagen{
+    display: flex;
+    justify-content: end;
+}
+.publicar__adjuntarImagen img{
+    width: 32px;
+}
+.publicar__adjuntarImagen label{
+    margin: 0 0 0 auto;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+}
+
+.publicar__adjuntarImagen label:hover{
+    cursor: pointer;
+}
+
+#publicar__boton{
+    border: none;
+    background: none;
+}
+/*Publicaciones*/
+.publicacion{
+    background-color: white;
+    margin: 1rem 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+    box-sizing: border-box;
+}
+.publicacion__encabezado{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.publicacion__foto-usuario{
+    width: 5rem;
+    border-radius: 50%;
+    border: 3px solid #2196F3;
+}
+#foto-usuario{
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.publicacion__datos-usuario{
+    margin-left: 2rem;
+}
+.publicacion__datos-usuario h6{
+    font-size: 1.2rem;
+}
+.publicacion__datos-usuario label{
+    display: inline;
+    font-size: 1rem;
+}
+
+.publicacion__datos-usuario img{
+    width: 30px;
+    margin-right: 0.4rem;
+}
+.publicacion__titulo-descripcion{
+    padding: 0 1rem;
+}
+.publicacion__titulo-descripcion p{
+    padding: 0 1rem;
+}
+
+/*seccion de botos like comentar verComentarios*/
+
+.publicacion__boton{
+    display: flex;
+    justify-content: flex-end;
+    padding: 0.5rem 1rem;
+}
+.publicacion__boton div{
+    display: flex;
+    align-items: center;
+}
+.publicacion__boton img{
+    width: 32px;
+    margin-right: 0.3rem;
+}
+
+.publicacion__boton label{
+    margin: 0 0 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    font-size: 1.1rem;
+}
+
+#like-boton,#comentar-boton,#verComentarios-boton{
+    border: none;
+    background: none;
+}
+#verComentarios-boton{
+    margin-left: 1rem;
+}
+.publicacion__boton label:hover{
+    cursor: pointer;
+}
+/*Desplegable de comentarios*/
+
+
+
+.comentarios__container{
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 5rem;
+    margin-bottom: 0.4rem;
+}
+.comentarios__foto-usuario{
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #2196F3;
+}
+#C__foto-usuario{
+    object-fit: contain;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.comentarios__usuario-comentario{
+    margin-left: 1rem;
+}
+.comentarios__usuario-comentario h6{
+    margin: 0;
+}
+.comentarios__usuario-comentario p{
+    font-size: 1rem;
+    margin: 0 0 0 0.5rem;
+}
+
+
+/*Desplegable para comentar*/
+.comentar{
+    display: flex;
+    align-items: center;
+    padding: 0.5rem 2rem 1rem;
+}
+.comentar__foto-usuario{
+    min-width: 4rem;
+    width: 4rem;
+    border-radius: 50%;
+    border: 3px solid #2196F3;
+}
+#c__foto-usuario{
+    border-radius: 50%;
+    border: 1px solid white;
+}
+.comentar__form{
+    display: flex;
+    margin-left: 1rem;
+    width: 100%;
+}
+.comentar__form img{
+    width: 32px;
+    margin-right: 0.3rem;
+}
+.comentar__form input{
+    flex-grow: 1;
+    padding: 0.5rem 1rem;
+    border: 2px solid #2196F3;
+    border-radius: 3px;
+    color: #2196F3;
+}
+.comentar__form input::placeholder{
+    color: #2196F3;
+}
+.comentar__form input:focus{
+    outline: none;
+}
+.comentar__form label{
+    margin: 0 0 0 auto;
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    background-color: #2196F3;
+    color: #fff;
+    padding: 0.5rem 0.5rem;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+#comentario-boton{
+    border: none;
+    background: none;
+}
+
+.comentar__form label:hover{
+    cursor: pointer;
+}
+/*Media querys para acomodor el contenido en dispositivos con pantallas mas chicas*/
+@media (max-width: 800px){
+    .aside{
+        width: 90%;
+        min-width: 230px;
+        margin: auto;
+    }
+
+    .perfil-card, .intereses{
+        position: static;
+    }   
+
+    .main{
+        width: 90%;
+        min-width: 230px;
+        margin: auto;
+    }
+}
+
+@media (max-width: 625px){
+    .publicacion__boton{
+        justify-content: center;
+    }
+    .comentarios__container{
+        padding: 0 0.5rem 0 1rem;
+    }
+    .comentar{
+        display: block;
+        padding: 0;
+    }
+    .comentar__foto-usuario{
+        display: none;
+    }
+    .comentar__form{
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
+
+#publicar__boton{
+    border: none!important;
+    background: none!important;
+}

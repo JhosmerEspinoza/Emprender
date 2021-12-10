@@ -19,7 +19,6 @@ public class PublicacionServicio {
     @Autowired
     private EmprendedorRepositorio repositorioEmprendedor;
     
-    
     @Autowired
     private PublicacionRepositorio publicacionRepositorio;
     @Autowired
@@ -131,6 +130,14 @@ public class PublicacionServicio {
     public List<Publicacion> listAll() {
         return publicacionRepositorio.findAll();
     }
+
+    public Optional<Publicacion> buscarPorId(String id) {
+        return publicacionRepositorio.findById(id);
+    }
+
     
+    public List<Publicacion> buscarPorUsuario(String id) {
+        return publicacionRepositorio.buscarPorUsuarioId(id);
+    }
     
 }

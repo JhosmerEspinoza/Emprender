@@ -62,23 +62,25 @@ public class UsuarioServicio implements UserDetailsService {
         user.setFotoPerfil(foto);
         //
         repositorioUsuario.save(user);
-        String codigoVerificacion =  user.getId().substring(0,5)+String.valueOf((int) (Math.random()*1000) );
+        String codigoVerificacion = user.getId().substring(0, 5) + String.valueOf((int) (Math.random() * 1000));
         user.setCodigoVerificacion(codigoVerificacion);
-        
-        String mensaje =  "Bienvenidx a emprender, ingrese al siguiente link para verificar su cuenta: ";
-        String link = "localhost:8080/verificarCuenta?idUser="+user.getId()+"&verificacion="+user.getCodigoVerificacion();
-        
-        
+
+        String mensaje = "Bienvenidx a emprender, ingrese al siguiente link para verificar su cuenta: ";
+        String link = "localhost:8080/verificarCuenta?idUser=" + user.getId() + "&verificacion=" + user.getCodigoVerificacion();
+
         servicioNotificacion.enviarMailRegistro(mensaje, "Emprender", user.getMail(), link);
-        
-        
+
     }
 
     @Transactional
-    public void modificar(String id, String nombre, String username, String mail, String password, String password2) throws ErrorServicio {
+    public void modificar(MultipartFile foto, String id, String nombre, String username, String mail, String password, String password2) throws ErrorServicio {
         validar(nombre, username, mail, password, password2);
-        if (findByNombreUsuario(username) != null) {
+        /*if (findByNombreUsuario(username) != null) {
             throw new ErrorServicio("El nombre de usuario ya existe");
+        }*/
+                    
+        if(foto==null){
+            throw new ErrorServicio("Ingrese una foto");
         }
 
         Optional<Usuario> rta = repositorioUsuario.findById(id);
@@ -87,6 +89,8 @@ public class UsuarioServicio implements UserDetailsService {
             user.setNombre(nombre);
             user.setNombreUsuario(username);
             user.setMail(mail);
+            Foto fotoPerfil = servicioFoto.modificarFoto(id, foto);
+            user.setFotoPerfil(fotoPerfil);
             String passEncriptado = new BCryptPasswordEncoder().encode(password);
             user.setPassword(passEncriptado);
             repositorioUsuario.save(user);
@@ -99,9 +103,11 @@ public class UsuarioServicio implements UserDetailsService {
     public Optional<Usuario> findById(String id) {
         return repositorioUsuario.findById(id);
     }
-    public Usuario buscarPorId(String id){
+
+    public Usuario buscarPorId(String id) {
         return repositorioUsuario.buscarPorId(id);
     }
+
     public Usuario findByNombreUsuario(String nombreUsuario) {
         return repositorioUsuario.findByNombreUsuario(nombreUsuario);
     }
@@ -194,15 +200,18 @@ public class UsuarioServicio implements UserDetailsService {
         if (!password.equals(password2)) {
             throw new ErrorServicio("Las claves deben ser iguales");
         }
-        if(!validarUsername(username)){
+        if (!validarUsername(username)) {
             throw new ErrorServicio("El nombre de usuario no puede tener espacios en blanco");
         }
     }
-    private Boolean validarUsername(String username){
+
+    private Boolean validarUsername(String username) {
         int espacios = 0;
-        for(int i=0; i<username.length(); i++){
-            if (username.charAt(i) == ' ') espacios++;
+        for (int i = 0; i < username.length(); i++) {
+            if (username.charAt(i) == ' ') {
+                espacios++;
+            }
         }
-        return espacios==0;
+        return espacios == 0;
     }
 }

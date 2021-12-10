@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
         <meta charset='utf-8'>
@@ -39,7 +39,7 @@
                                     Perfil
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" sec:authorize="hasRole('ROLE_EMPRENDEDOR')">
-                                    <li ><a class="dropdown-item">Ir a mi perfil</a></li>
+                                    <li ><a class="dropdown-item" th:href="@{/emprendedor/profile(id=__${session.usuariosession.id}__)}">Ir a mi perfil</a></li>
                                     <li><a class="dropdown-item" th:href="@{/emprendedor/actualizarPerfil(id=__${session.usuariosession.id}__)}">Editar Perfil</a></li>
                                 </ul>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown" sec:authorize="hasRole('ROLE_CLIENTE')">
@@ -62,9 +62,22 @@
                     <article class="perfil-card" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ROLE_EMPRENDEDOR')">
                         <div class="perfil-card__miPerfil">
                             <h2 th:text="${session.usuariosession.nombreUsuario}"></h2>
-                            <div class="perfil-card__foto">
-                                <img id="foto-perfil" src="img/perfil.png" alt="Foto de perfil" title="Foto de perfil">
+                            <div id="preview" class="perfil-card__foto">
+                                <img class="foto-perfil" th:if="${session.usuariosession.fotoPerfil!=null}" th:src="${'/foto/usuario/' + session.usuariosession.id}">
+                                <img class="foto-perfil" th:if="${session.usuariosession.fotoPerfil==null}" src="/img/perfil.png" alt="">
+
+
                             </div>
+                            <!--
+                            <form th:action="@{/emprendedor/actualizarFoto}" method="POST" enctype="multipart/form-data" class="cambiar-foto-perfil">
+                                <div>
+                                    <input type="hidden" name="id" th:value="${session.usuariosession.id}">
+                                    <label for="foto" class="boton"><img src="paisaje.png" alt=""> Editar</label>
+                                    <input type="file" accept="image/*" id="foto">  
+                                </div>  
+                                <input class="boton" type="submit" value="Guardar">                              
+                            </form>
+                            -->
                         </div>
                         <div class="datos">
                             <ul>
@@ -86,9 +99,17 @@
                     <article class="perfil-card" th:if="${session.usuariosession != null}" sec:authorize="hasRole('ROLE_CLIENTE')">
                         <div class="perfil-card__miPerfil">
                             <h2 th:text="${session.usuariosession.nombre}"></h2>
-                            <div class="perfil-card__foto">
-                                <img id="foto-perfil" src="img/perfil.png" alt="Foto de perfil" title="Foto de perfil">
+                            <div id="preview" class="perfil-card__foto">
+                                <img class="foto-perfil" src="/img/perfil.png" alt="Foto de perfil" title="Foto de perfil">
                             </div>
+                            <!--
+                            <form action="" method="POST" enctype="multipart/form-data" class="cambiar-foto-perfil">
+
+                                <label for="foto" class="boton"><img src="paisaje.png" alt=""> Editar</label>
+                                <input type="file" accept="image/*" id="foto"  name="archivo">  
+
+                                <input class="boton" type="submit" value="Guardar">                              
+                            </form>-->
                         </div>
                         <div class="datos">
                             <ul>
@@ -102,27 +123,10 @@
                             </ul>
                         </div>
                     </article>
-                    <div class="intereses">
-                        <div>
-                            <div class="intereses__titulo">
-                                <h4>Mis intereses</h4>
-                            </div>
-                            <div class="etiquetas">
-                                <!-- agregas etiquetas con thameleaf -->
-                                <p>ejemplo de etiquetas</p>
-                                <p>golf</p>
-                                <p>autos</p>
-                                <p>comida</p>
-                            </div>
-                            <div class="intereses__buscador">
-                                <!-- agregas buscador etiquetas -->
-                                <a href=""><img src="img/plus.png" alt="buscador de etiquetas"></a>
-                            </div>
-                        </div>
-                    </div>
+
                 </aside>
                 <main class="main">
-                    <!-- -----------------------BACK PUBLI------------------------------------------- -->
+                    <!-- -----------------------BACK PUBLI------------------------------------------- 
                     <div class="publicaciones">
                         <div th:if="${error}" role="alert" class="alert alert-danger alert-dismissible fade show mt-3">
                             <span th:text="${error}"></span>
@@ -142,7 +146,7 @@
                                 </div>
                             </form>
                         </div>
-                        
+
                         <article class="publicacion">
                             <div class="publicacion__encabezado">
                                 <div class="publicacion__foto-usuario">
@@ -179,48 +183,130 @@
                                                                                                        alt=""> Ver
                                             comentarios</label></button>
                                 </div>
+                            </div>-->
+                    <!--
+                    <!-- Comentarios de cada publicacion 
+                    <div class="collapse" id="comentarios">
+                        <div class="comentarios__container">
+                            <div>
+                                <div class="comentarios__foto-usuario">
+                                    <img id="C__foto-usuario" src="img/varelaUser.jpg" alt="Foto del usuario"
+                                         title="Foto del usuario">
+                                </div>
                             </div>
-                            <!-- Comentarios de cada publicacion -->
-                            <div class="collapse" id="comentarios">
-                                <div class="comentarios__container">
+                            <div class="comentarios__usuario-comentario">
+                                <h6>Alan varela</h6>
+                                <p>Librerenme</p>
+                            </div>
+                        </div>
+                        <div class="comentarios__container">
+                            <div>
+                                <div class="comentarios__foto-usuario">
+                                    <img id="C__foto-usuario" src="img/FernandezUser.jpg" alt="Foto del usuario"
+                                         title="Foto del usuario">
+                                </div>
+                            </div>
+                            <div class="comentarios__usuario-comentario">
+                                <h6>Equi fernandez</h6>
+                                <p>Dale que te como hermano @varela</p>
+                            </div>
+                        </div>
+                    </div>-->
+                    <!-- Seccion para comentar -->
+                    <!--<div class="comentar collapse" id="comentar1">
+                        <div class="comentar__foto-usuario">
+                            <img id="c__foto-usuario" src="img/perfil.png" alt="Foto del usuario"
+                                 title="Foto del usuario">
+                        </div>
+                        <form class="comentar__form" action="" method="post">
+                            <input type="text" placeholder="Ingrese su comentario">
+                            <button type="submit" id="comentario-boton"><label for="comentario-boton"><img
+                                        src="img/comentario.png" alt=""> Comentar</label></button>
+                        </form>
+                    </div>
+                </article>
+            </div>-->
+                    <div class="publicaciones">
+                        <div th:if="${error}" role="alert" class="alert alert-danger alert-dismissible fade show mt-3">
+                            <span th:text="${error}"></span>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                        </div>
+                        <div class="publicar" sec:authorize="hasRole('ROLE_EMPRENDEDOR')">
+                            <form th:action="@{/publicacion/nueva}" method="POST" enctype="multipart/form-data">
+
+                                <textarea name="descripcion" id="publicar__descripcion"
+                                          placeholder="Agregue una descripcion.."></textarea>
+                                <div id="preview"></div>
+                                <div class="publicar__adjuntarImagen">
+                                    <button type="submit" id="publicar__boton"><label for="publicar_boton"><img
+                                                src="img/megafono.png" alt=""> Publicar</label></button>
+                                    
+                                    <label for="file"><img src="img/paisaje.png" alt=""> Seleccione una imagen</label>
+                                    <input type="file" accept="image/*" name="img" id="file">
+                                </div>
+                            </form>
+                        </div>
+
+                        <article class="publicacion" th:each="publicacion : ${publicaciones}">
+                            <div class="publicacion__encabezado">
+                                <div class="publicacion__foto-usuario">
+                                    <img class="foto-perfil" th:if="${publicacion.emprendedor.fotoPerfil!=null}" th:src="${'/foto/usuario/' + publicacion.emprendedor.id}">
+                                </div>
+                                <div class="publicacion__datos-usuario">
+                                    <h6 th:text="${publicacion.emprendedor.nombreUsuario}"></h6>
+                                    <label><img src="img/location.png" th:text="${publicacion.emprendedor.direccion}"> </label>
+                                </div>
+                            </div>
+                            <div class="publicacion__titulo-descripcion">
+
+                                <p th:text="${publicacion.descripcion}"></p>
+                            </div>
+                            <img th:src="${'/foto/publicacion/'+ publicacion.id}" alt="Foto de la publicacion">
+                            <div class="publicacion__boton">
+             
+                                <div>
+                                    <button id="comentar-boton" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#comentar1" aria-expanded="false"
+                                            aria-controls="comentar1"><label for="comentar-boton"><img src="img/comentario.png"
+                                                                                               alt=""> Comentar</label></button>
+                                    <button id="verComentarios-boton" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#comentarios" aria-expanded="false"
+                                            aria-controls="comentarios"><label for="verComentarios-boton"><img src="comentando.png"
+                                                                                                       alt=""> Ver
+                                            comentarios</label></button>
+                                </div>
+                            </div>
+                            <!-- Comentarios de cada publicacion 
+                            <div class="collapse" id="comentarios" th:each="comentario : ${publicacion.comentarios}" >
+                                <div class="comentarios__container" >
                                     <div>
                                         <div class="comentarios__foto-usuario">
                                             <img id="C__foto-usuario" src="img/varelaUser.jpg" alt="Foto del usuario"
                                                  title="Foto del usuario">
                                         </div>
                                     </div>
-                                    <div class="comentarios__usuario-comentario">
-                                        <h6>Alan varela</h6>
-                                        <p>Librerenme</p>
+                                    <div class="comentarios__usuario-comentario" >
+                                        <h6 th:text="${comentario.usuario.nombre}"></h6>
+                                        <p th:text="${comentario.texto}"></p>
                                     </div>
                                 </div>
-                                <div class="comentarios__container">
-                                    <div>
-                                        <div class="comentarios__foto-usuario">
-                                            <img id="C__foto-usuario" src="img/FernandezUser.jpg" alt="Foto del usuario"
-                                                 title="Foto del usuario">
-                                        </div>
-                                    </div>
-                                    <div class="comentarios__usuario-comentario">
-                                        <h6>Equi fernandez</h6>
-                                        <p>Dale que te como hermano @varela</p>
-                                    </div>
-                                </div>
-                            </div>
+                            </div>-->
                             <!-- Seccion para comentar -->
                             <div class="comentar collapse" id="comentar1">
                                 <div class="comentar__foto-usuario">
                                     <img id="c__foto-usuario" src="img/perfil.png" alt="Foto del usuario"
                                          title="Foto del usuario">
                                 </div>
-                                <form class="comentar__form" action="" method="post">
-                                    <input type="text" placeholder="Ingrese su comentario">
+                                <form class="comentar__form" th:action="@{/comentario/nuevoComentario}" method="post">
+                                    <div hidden><input th:value="${publicacion.id}" name ="id_publicacion"></div>
+                                    <input type="text" name="texto" placeholder="Ingrese su comentario">
                                     <button type="submit" id="comentario-boton"><label for="comentario-boton"><img
                                                 src="img/comentario.png" alt=""> Comentar</label></button>
                                 </form>
                             </div>
                         </article>
                     </div>
+
                 </main>
             </div>
         </div>
@@ -232,7 +318,7 @@
                 integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
         crossorigin="anonymous"></script>
         <script>
-            document.getElementById("file").onchange = function (e) {
+            document.getElementById("foto").onchange = function (e) {
             // Creamos el objeto de la clase FileReader
             let reader = new FileReader();
 
@@ -250,6 +336,27 @@
             preview.append(image);
             };
             }
+        </script>
+        <script>
+            document.getElementById("file").onchange = function (e) {
+            // Creamos el objeto de la clase FileReader
+            let reader = new FileReader();
+
+            // Leemos el archivo subido y se lo pasamos a nuestro fileReader
+            reader.readAsDataURL(e.target.files[0]);
+
+            // Le decimos que cuando este listo ejecute el código interno
+            reader.onload = function () {
+            let preview = document.getElementById('p'),
+            image = document.createElement('img');
+
+            image.src = reader.result;
+
+            preview.innerHTML = '';
+            preview.append(image);
+            };
+            }
+
         </script>
     </body>
 

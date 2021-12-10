@@ -35,10 +35,6 @@
     position: sticky;
     top: 4.5rem;
 }
-.intereses{
-    position: sticky;
-    top: 27.2rem;
-}
 /*Aside - seccion de perfil*/
 .perfil-card, .intereses{
     transition: box-shadow 0.4s ease;
@@ -46,7 +42,6 @@
     margin: 0.5rem 0;
     border-radius: 0.5rem;
     padding: 0.2rem 0;
-    cursor: pointer;
     box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
 }
 .perfil-card:hover{
@@ -72,10 +67,29 @@
     justify-content: center;
 }
 
-#foto-perfil{
+.foto-perfil, .perfil-card__foto img{
     width: 50%;
     border-radius: 50%;
     border: 3px solid white;
+}
+/*Cambiar foto de perfil*/
+.cambiar-foto-perfil{
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+.cambiar-foto-perfil .boton{
+    outline: none;
+    margin: 0 0 0 auto;
+    background-color: transparent;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border: 2px solid white;
+    border-radius: 25px;
+}
+
+.cambiar-foto-perfil .boton:hover{
+    cursor: pointer;
 }
 /*Datos del perfil*/
 .datos{
@@ -104,6 +118,7 @@ ul{
 }
 /*Intereses del usuario*/
 .intereses{
+    margin-top: 1.5rem;
     padding: 1rem;
     padding-bottom: 0.5rem;
 }
@@ -140,7 +155,7 @@ ul{
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
 }
-    /*Crear publicacion*/
+/*Crear publicacion*/
 .publicar{
     padding: 1rem;
 }
@@ -175,7 +190,7 @@ ul{
 input[type="file"]{
     display: none;
 }
-#preview{
+#preview, #p{
     margin-bottom: 0.5rem;
     box-shadow: 0 0.1rem 0.5rem #2196F3;
 }
@@ -208,6 +223,7 @@ input[type="file"]{
     margin: 1rem 0;
     border-radius: 0.5rem;
     box-shadow: 0 0.1rem 0.9rem rgba(0,0,0,0.3);
+    box-sizing: border-box;
 }
 .publicacion__encabezado{
     display: flex;
@@ -249,7 +265,7 @@ input[type="file"]{
 
 .publicacion__boton{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0.5rem 1rem;
 }
 .publicacion__boton div{
@@ -393,6 +409,12 @@ input[type="file"]{
 }
 
 @media (max-width: 625px){
+    .publicacion__boton{
+        justify-content: center;
+    }
+    .comentarios__container{
+        padding: 0 0.5rem 0 1rem;
+    }
     .comentar{
         display: block;
         padding: 0;
@@ -400,5 +422,14 @@ input[type="file"]{
     .comentar__foto-usuario{
         display: none;
     }
+    .comentar__form{
+        margin: 0;
+        box-sizing: border-box;
+        width: 100%;
+    }
+}
 
+#publicar__boton{
+    border: none!important;
+    background: none!important;
 }

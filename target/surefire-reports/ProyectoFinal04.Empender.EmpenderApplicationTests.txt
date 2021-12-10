@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ProyectoFinal04.Empender.EmpenderApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.017 s - in ProyectoFinal04.Empender.EmpenderApplicationTests
